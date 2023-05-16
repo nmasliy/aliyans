@@ -1,0 +1,29 @@
+.animated-line {
+	overflow: hidden;
+	display: flex;
+	padding: 15px 0;
+
+	&--bg {
+		background-color: #bc8eaf;
+		color: $white-color;
+	}
+	
+	&__item {
+		flex-shrink: 0;
+		animation: move-left 25s linear infinite;
+		letter-spacing: 0.02em;
+
+		ul {
+			display: flex;
+			li {
+				flex-shrink: 0;
+				margin-right: 6px;
+				&::before {
+					font-size: 10px;
+					content: "•";
+					margin-right: 6px;
+				}
+			}
+		}
+	}
+}

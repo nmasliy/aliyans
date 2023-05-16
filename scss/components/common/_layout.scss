@@ -1,0 +1,109 @@
+.page-wrapper {
+  @include footerToBottom;
+
+  overflow: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 var(--container-offset);
+  max-width: var(--container-width);
+}
+
+.banner {
+  display: block;
+  max-width: 300px;
+  background: $gradient;
+  padding: 28px;
+  position: relative;
+  transition: transform $transition;
+
+  @include hover {
+    transform: scale(1.02);
+
+    .banner {
+      &__icon {
+        animation: rotate 2s ease-in-out infinite;
+      }
+    }
+
+  }
+  
+  &::before {
+    position: absolute;
+    content: '';
+    inset: -6px;
+    z-index: -1;
+    border: 3px solid $accent-color;
+  }
+
+  &__title {
+    line-height: 1;
+    margin-bottom: 25px;
+    font-family: $font-tertiary;
+    &-first {
+      font-size: 31px;
+      border-bottom: 1px solid $black-color;
+      display: inline-block;
+    }
+    &-second {
+      font-size: 43px;
+      font-weight: 700;
+    }
+
+    &-third {
+      font-size: 35px;
+    }
+  }
+
+  &__text {
+    font-size: 17px;
+    line-height: 1.4;
+    font-family: $font-main;
+    span {
+      font-weight: 700;
+      display: block;
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    right: -30px;
+    top: 8px;
+    transform: rotate(-5deg);
+  }
+
+  &__arrow {
+    position: absolute;
+    right: 15px;
+    bottom: 20px;
+    animation: arrow 2s ease-in-out infinite;
+  }
+}
+
+.title {
+  font-size: 27px;
+  line-height: 1.2;
+  position: relative;
+  padding-bottom: 13px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+
+  &::before {
+    position: absolute;
+    content: "";
+    left: 0;
+    bottom: 0;
+    background-color: $accent-color;
+    height: 5px;
+    width: 500px;
+    max-width: 100%;
+  }
+
+  &__small {
+    font-size: 20px;
+    line-height: 1.2;
+    text-transform: none;
+    letter-spacing: 0.08em;
+  }
+}

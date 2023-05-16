@@ -1,0 +1,58 @@
+.invest {
+	background: url('../img/divider-4.png') top center no-repeat;
+	padding: 140px 0 110px;
+
+	&__title {
+		margin-right: 30px;
+		margin-bottom: 80px;
+	}
+
+	&__caption {
+		max-width: 580px;
+		background-repeat: no-repeat;
+		background-position: center left;
+		padding-left: 80px;
+		line-height: 1.4;
+		color: #c09479;
+		margin-bottom: 80px;
+		font-size: 20px;
+		strong {
+			font-weight: 700;
+		}
+	}
+
+	&__row {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__inner {
+		@include grid(2, 100px);
+	}
+	
+
+	&__col {
+		letter-spacing: 0.05em;
+		max-width: 280px;
+		&:nth-child(2) {
+			padding-right: 68px;
+		}
+		p {
+			@include mb(24px);
+		}
+	}
+
+	&__img-wrapper {
+		p {
+			@include mb(16px);
+		}
+		em {
+			font-size: 14px;
+			font-style: italic;
+		}
+	}
+
+	&__img-text {
+		margin-bottom: 30px;
+	}
+}

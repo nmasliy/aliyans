@@ -1,0 +1,39 @@
+.catalog {
+	padding: 160px 0 110px;
+
+	&__inner {
+		display: grid;
+		grid-template-columns: 82fr 50fr;
+		gap: 90px;
+	}
+
+	&__title {
+		margin-bottom: 40px;
+		text-transform: uppercase;
+	}
+
+	&__subtitle {
+		font-size: 27px;
+		margin-bottom: 40px;
+		line-height: 1.4;
+		text-transform: uppercase;
+		background-repeat: no-repeat;
+		background-position: left top;
+		padding-left: 80px;
+		background-size: 41px;
+	}
+
+	&__text {
+		font-size: 20px;
+		text-transform: uppercase;
+		margin-bottom: 80px;
+	}
+
+	&__btn {
+		margin-bottom: 90px;
+	}
+
+	&__caption {
+		font-style: italic;
+	}
+}

@@ -1,0 +1,113 @@
+.subscribe {
+  padding: 150px 0 120px;
+  background: url('../img/divider-2.png') top center no-repeat;
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 50px;
+    padding-left: 60px;
+    background-size: 32px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    font-size: 27px;
+    line-height: 1.2;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: background $transition;
+    a {
+      border-bottom: 1px solid $black-color;
+      transition: $transition;
+			@include hover {
+				color: $red-color;
+				border-bottom-color: $red-color;
+			}
+    }
+    @include hover {
+      background-position: left 6px center;
+    }
+  }
+
+  &__body {
+    width: 100%;
+    text-align: center;
+  }
+
+  &__logo {
+    display: inline-block;
+    position: relative;
+    bottom: -25px;
+    padding: 0 5px;
+    background-color: $white-color;
+    z-index: 2;
+  }
+
+  &__box {
+    max-width: 680px;
+    width: 100%;
+    background-color: $white-color;
+    padding-bottom: 45px;
+    margin: 0 auto 25px;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: '';
+      right: 30px;
+      bottom: 0;
+      width: 80px;
+      height: 69px;
+      background: url('../img/telegram-big-icon.png') center / cover no-repeat;
+    }
+  }
+
+  &__link {
+    @include flex-center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    border: 3px solid #ebe0e3;
+    padding: 30px;
+    text-transform: uppercase;
+    font-size: 27px;
+    transition: box-shadow $transition;
+
+    @include hover {
+      box-shadow: 0 0 10px $accent-color;
+      .subscribe__box-title {
+        color: $red-color;
+        span {
+          border-color: $red-color;
+        }
+      }
+    }
+  }
+
+  &__box-subtitle {
+    color: #238fc6;
+    font-size: 20px;
+  }
+
+  &__box-title {
+    font-size: 27px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color $transition;
+    span {
+      transition: border-color $transition;
+      border-bottom: 1px solid $black-color;
+    }
+  }
+
+  &__caption {
+    font-size: 18px;
+    max-width: 820px;
+    text-align: center;
+    margin: 0 auto;
+  }
+}

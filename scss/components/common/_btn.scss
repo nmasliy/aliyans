@@ -1,0 +1,95 @@
+/* stylelint-disable scss/no-global-function-names */
+.btn {
+  display: inline-block;
+  border: none;
+  line-height: normal;
+  font-family: $font-secondary;
+  background: linear-gradient(-45deg, #fae8e1 0%, #f8d9cc 100%);
+  text-transform: uppercase;
+  font-size: 28px;
+  font-weight: 700;
+  transition: background $transition;
+  cursor: pointer;
+  position: relative;
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: 24px 40px;
+    z-index: 2;
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -50%;
+      bottom: -50%;
+      left: -50%;
+      background: linear-gradient(
+        -45deg,
+        #f7e8e3 0%,
+        rgba($white-color, 30%) 100%
+      );
+      transform: rotateZ(-60deg) translate(0, -200%);
+      animation: shine 4s ease forwards infinite;
+    }
+  }
+
+  &::before {
+    position: absolute;
+    content: '';
+    left: -50px;
+    width: 72px;
+    height: 24px;
+    z-index: 2;
+    top: 50%;
+    transform: translateY(-50%);
+    background: url('../img/arrow-2-icon.png') center no-repeat;
+    animation: arrow-center 1.5s ease-in-out infinite;
+  }
+
+  &::after {
+    position: absolute;
+    content: '';
+    inset: -5px;
+    border: 3px solid $accent-color;
+    transition: $transition;
+  }
+
+  &__text {
+    border-bottom: 1px solid $black-color;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__caption {
+    font-size: 20px;
+    font-weight: 400;
+    position: relative;
+    margin-left: 30px;
+    z-index: 2;
+  }
+
+  &:focus,
+  &:active {
+    background-color: darken($accent-color, 10%);
+  }
+
+  @include hover {
+    &::after {
+      inset: -10px;
+    }
+  }
+}
+
+.btn-small {
+  font-size: 22px;
+  &__inner {
+    padding: 20px 65px 20px 50px;
+  }
+}

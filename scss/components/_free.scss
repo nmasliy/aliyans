@@ -1,0 +1,104 @@
+.free {
+	position: relative;
+	padding: 90px 0 150px;
+
+	&__bg {
+		position: absolute;
+		left: 0; 
+		top: 0;
+		width: 100%;
+		height: 670px;
+		background-repeat: no-repeat;
+		background-position: top center;
+		background-size: cover;
+		&::before {
+			position: absolute;
+			content: "";
+			width: 1405px;
+			height: 40px;
+			left: 0;
+			margin: 0 auto;
+			right: 0;
+			bottom: -10px;
+			background: url('../img/free-flag.png') left bottom no-repeat;
+		}
+	}
+	
+	&__inner {
+		display: flex;
+		position: relative;
+		z-index: 2;
+	}
+
+	&__left {
+		display: flex;
+		flex-direction: column;
+		max-width: 480px;
+		margin-right: 100px;
+	}
+
+	&__title {
+		max-width: 480px;
+		font-size: 31px;
+		text-transform: uppercase;
+		> div {
+			display: inline-block;
+			background-color: #ece4df;
+			margin-bottom: 3px;
+			padding: 2px;
+		}
+	}
+
+	&__caption {
+		font-size: 20px;
+		font-style: italic;
+		margin-top: auto;
+		padding-bottom: 40px;
+	}
+
+	&__box {
+		position: relative;
+		padding: 60px;
+		background-color: $white-color;
+		max-width: 730px;
+		width: 100%;
+		margin-left: auto;
+
+		&::before {
+			position: absolute;
+			content: "";
+			inset: 3px;
+			border: 2px solid $accent-color;
+		}
+		 > *{
+			position: relative;
+			z-index: 2;
+		}
+	}
+
+	&__list {
+		@include grid(2, 30px);
+		margin-bottom: 60px;
+
+		li {
+			max-width: 220px;
+			padding-left: 40px;
+			background: url('../img/free-list-bullet.png') left center no-repeat;
+		}
+	}
+
+	&__box-text {
+		font-size: 15px;
+		margin-bottom: 65px;
+		font-style: italic;
+		max-width: 540px;
+	}
+
+	&__btn-wrapper {
+		text-align: center;
+	}
+
+	&__btn {
+		margin: 0 auto;
+	}
+}

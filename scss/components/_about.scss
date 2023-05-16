@@ -1,0 +1,142 @@
+.about {
+	background: url('../img/divider-1.png') top center no-repeat;
+	padding: 150px 0 100px;
+
+	&__inner {
+		display: grid;
+		align-items: center;
+		grid-template-columns: 7fr 6fr;
+		gap: 130px;
+	}
+
+	&__video {
+		display: flex;
+		position: relative;
+		margin-bottom: 40px;
+		&::before,
+		&::after {
+			border: 1px solid $accent-color;
+			position: absolute;
+			content: "";
+			left: 140px;
+			top: 70px;
+			right: -25px;
+			bottom: -25px;
+			z-index: -1;
+			transition: margin $transition;
+		}
+
+		&::after {
+			left: 136px;
+			top: 66px;
+			right: -29px;
+			bottom: -29px;
+		}
+
+		@include hover {
+			&::before,
+			&::after {
+				margin: -10px;
+			}
+		}
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__title {
+		margin-bottom: 50px;
+	}
+
+	&__subtitle {
+		margin-bottom: 20px;
+		text-transform: uppercase;
+		font-size: 20px;
+		line-height: 1.4;
+	}
+
+	&__text {
+		margin-bottom: 55px;
+		line-height: 1.4;
+		font-size: 18px;
+	}
+
+	&__link {
+		font-family: $font-secondary;
+		display: inline-block;
+		padding-left: 70px;
+		background-position: left bottom;
+		background-repeat: no-repeat;
+		background-size: 45px;
+		font-size: 20px;
+		text-transform: uppercase;
+		margin-top: auto;
+		transition:  $transition;
+
+		span {
+			border-bottom: 1px solid $black-color;
+		}
+
+		@include hover {
+			background-position: left 15px center;
+			color: $red-color;
+			span {
+				border-color: $red-color;
+			}
+		}
+	}
+}
+
+.about-info {
+	padding: 20px 0 130px;
+	
+	&__list {
+		@include grid(3, 100px);
+		padding-bottom: 60px;
+		justify-content: center;
+	}
+
+	&__item {
+		padding-top: 55px;
+		background: url('../img/quotes-icon.png') top center no-repeat;
+		
+		p {
+			@include mb(30px);
+		}
+	}
+
+	&__footer {
+		background: url('../img/about-info-bg.png') top -50px center  no-repeat;
+		min-height: 640px;
+		padding-top: 290px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+
+	&__title {
+		font-size: 44px;
+		margin-bottom: 20px;
+		span {
+			font-size: 35px;
+		}
+	}
+
+	&__subtitle {
+		font-size: 24px;
+		margin-bottom: 45px;
+		text-transform: uppercase;
+		p {
+			@include mb(5px);
+		}
+	}
+
+	&__decor {
+		font-size: 45px;
+		letter-spacing: 0.7em;
+	}
+}
+

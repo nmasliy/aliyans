@@ -1,0 +1,94 @@
+.nav {
+  text-transform: uppercase;
+  font-family: $font-tertiary;
+  font-weight: 700;
+  font-size: 20px;
+  li {
+    @include mb(22px);
+    background: url('../img/nav-bullet-icon.png') left center / 8px 16px
+      no-repeat;
+    padding-left: 25px;
+
+    a {
+      display: inline-block;
+      border-bottom: 1px solid $black-color;
+      transition: transform $transition;
+    }
+
+    @include hover {
+      a {
+        transform: translateX(-10px);
+      }
+    }
+  }
+}
+
+.consult-btn {
+  display: inline-block;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding: 15px 15px 15px 60px;
+  background: url('../img/btn-icon.png') center left 15px no-repeat;
+  border: 2px solid $accent-color;
+  transition: background $transition;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: $gradient;
+    z-index: -1;
+    transform: rotateZ(-60deg) translate(0, -200%);
+    animation: shine 5s ease forwards infinite;
+  }
+
+  span {
+    text-decoration: underline;
+  }
+
+  @include hover {
+    background-color: $accent-color;
+    background-position: center left 20px;
+  }
+}
+
+.info-box {
+	font-size: 25px;
+
+	&__phone {
+    transition: border-color $transition;
+    border-bottom: 1px solid transparent;
+    @include hover {
+      border-color: $black-color;
+    }
+  }
+
+  &__telegram,
+  &__whatsapp {
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-size: 22px;
+    padding-left: 30px;
+  }
+
+  &__email,
+  &__telegram,
+  &__whatsapp {
+    font-weight: 300;
+    font-family: $font-tertiary;
+    display: inline-block;
+    transition: transform $transition;
+    span {
+      border-bottom: 1px solid $black-color;
+    }
+
+    @include hover {
+      transform: scale(1.03);
+    }
+  }
+}

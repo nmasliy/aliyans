@@ -1,0 +1,24 @@
+// base
+@import "vars";
+@import "mixins";
+@import "fonts";
+@import "global";
+
+// components
+@import "./components/common";
+@import "./components/header";
+@import "./components/footer";
+@import "./components/apartments";
+@import "./components/catalog";
+@import "./components/about";
+@import "./components/team";
+@import "./components/help";
+@import "./components/subscribe";
+@import "./components/citizenship";
+@import "./components/benefits";
+@import "./components/gallery";
+@import "./components/animated-line";
+@import "./components/transfer";
+@import "./components/online";
+@import "./components/invest";
+@import "./components/free";

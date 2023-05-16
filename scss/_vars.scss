@@ -1,0 +1,29 @@
+// root
+:root {
+  --content-width: 1420px;
+  --container-offset: 15px;
+  --container-width: calc(var(--content-width) + var(--container-offset));
+  --window-height: 100%;
+  --header-height: 100px;
+}
+
+// font
+$font-main: "Century Gothic", sans-serif;
+$font-secondary: "Constantia", sans-serif;
+$font-tertiary: "Roboto Condensed", sans-serif;
+
+
+// transitions
+$transition: 0.25s ease-in-out;
+$menu-transition: 0.35s ease-in-out;
+
+// breakpoints
+$menu-breakpoint: 1024px;
+
+// colors
+$white-color: #fff;
+$black-color: #444444;
+$accent-color: #ddbda9;
+$accent-light-color: #fae5d7;
+$red-color: #bd2a45;
+$gradient: linear-gradient(0deg, #efd0bd 0%, #ede4f0 100%);

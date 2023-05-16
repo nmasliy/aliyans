@@ -1,0 +1,137 @@
+.footer {
+  padding: 160px 0 0;
+  background: url('../img/divider-5.png') top center no-repeat,
+	url('../img/footer-bg-2.png') right top 240px no-repeat;
+
+  &__head {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 90px;
+  }
+
+  &__logo {
+    font-family: $font-tertiary;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-size: 25px;
+    img {
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    display: inline-block;
+    padding-left: 60px;
+    padding-right: 40px;
+    font-size: 23px;
+    font-family: $font-secondary;
+    span {
+      color: $red-color;
+    }
+  }
+
+  &__keys {
+    position: absolute;
+    left: 18px;
+    top: 5px;
+    animation: rotate 1.7s ease-in-out infinite;
+    transform-origin: top left;
+  }
+
+  &__col {
+    display: flex;
+		align-items: flex-start;
+    flex-direction: column;
+  }
+
+  &__moon {
+    position: absolute;
+    right: 0;
+    top: 0;
+    animation: scale 2s ease-in-out infinite;
+  }
+
+  &__inner {
+    @include grid(3, 80px);
+    align-items: center;
+		margin-bottom: 100px;
+  }
+
+  &__phone {
+    margin-bottom: 20px;
+  }
+
+  &__email {
+    margin-bottom: 30px;
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    li {
+      @include mr(20px);
+    }
+  }
+
+
+  &__bottom {
+    padding: 80px 0 440px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+
+  &__address {
+    font-size: 17px;
+    padding-left: 35px;
+    padding-bottom: 20px;
+    background-repeat: no-repeat;
+    background-position: top left;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: '';
+      height: 5px;
+      max-width: 500px;
+      width: 100%;
+      background-color: $accent-color;
+      left: 0;
+      bottom: 0;
+    }
+  }
+
+  &__bottom-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+    p {
+      font-size: 14px;
+      text-transform: uppercase;
+      padding-right: 30px;
+      background-repeat: no-repeat;
+      background-position: right center;
+    }
+    a {
+      font-size: 18px;
+      border-bottom: 1px solid $black-color;
+			transition: border-color $transition, color $transition;
+
+			@include hover {
+				border-color: $red-color;
+				color: $red-color;
+			}
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    color: #616161;
+    max-width: 660px;
+    margin-left: auto;
+  }
+}

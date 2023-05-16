@@ -1,0 +1,69 @@
+.header {
+  padding: 50px 0 100px;
+  background: url('../img/header-bg.png') top left 20% no-repeat;
+
+  &__top {
+    margin-bottom: 60px;
+    font-size: 25px;
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__logo {
+    font-family: $font-tertiary;
+    display: flex;
+    align-items: center;
+    font-style: italic;
+    font-size: 36px;
+    margin-bottom: 20px;
+    img {
+      flex-shrink: 0;
+      margin-right: 8px;
+    }
+  }
+
+  &__title {
+    position: relative;
+    font-size: 61px;
+    line-height: 1;
+    font-family: $font-secondary;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    span {
+      display: block;
+      font-size: 105px;
+      color: $red-color;
+    }
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo-keys {
+    position: absolute;
+    right: 150px;
+    top: 101%;
+    animation: rotate 1.7s ease-in-out infinite;
+    transform-origin: top left;
+  }
+
+  &__logo-moon {
+    position: absolute;
+    right: -60px;
+    top: 60px;
+    animation: scale 2s ease-in-out infinite;
+  }
+
+  &__subtitle {
+    font-size: 20px;
+    font-weight: 500;
+    font-family: $font-tertiary;
+    margin-left: 70px;
+  }
+}

@@ -1,0 +1,73 @@
+.apartments {
+  &__list {
+  }
+
+  &__item {
+    position: relative;
+
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding-bottom: 22%;
+
+		&:last-child::after {
+			display: none;
+		}
+
+    &::before {
+      position: absolute;
+      content: '';
+      inset: 0;
+      background: rgba(#000, 0.6);
+      transition: opacity $transition;
+      opacity: 0;
+			z-index: 3;
+    }
+
+		&::after {
+			position: absolute;
+			content: "";
+			width: 37px;
+			height: 38px;
+			background: url('../img/cube-icon.png') center no-repeat;
+			bottom: -13px;
+			left: 50%;
+			transform: translateX(-50%);
+			z-index: 6;
+		}
+		
+    @include hover {
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__link {
+    @include flex-center;
+    position: absolute;
+    inset: 0;
+    z-index: 4;
+  }
+
+  &__name {
+    padding: 10px 15px;
+    font-size: 20px;
+    font-family: $font-secondary;
+    border-radius: 5px;
+    border: 5px solid $white-color;
+    background-color: $accent-color;
+    max-width: 530px;
+    margin: 0 auto;
+    text-align: center;
+		transition: box-shadow $transition;
+
+		@include hover {
+			box-shadow: 2px 2px 15px $accent-color;
+		}
+
+    span {
+      border-bottom: 1px solid $black-color;
+    }
+  }
+}
