@@ -1,5 +1,5 @@
 .subscribe {
-  padding: 150px 0 120px;
+  padding: 9.375rem 0 7.5rem;
   background: url('../img/divider-2.png') top center no-repeat;
 
   &__inner {
@@ -11,26 +11,35 @@
   &__title {
     display: inline-block;
     text-align: center;
-    margin-bottom: 50px;
-    padding-left: 60px;
-    background-size: 32px;
-    background-repeat: no-repeat;
-    background-position: left center;
-    font-size: 27px;
+    margin-bottom: 3.125rem;
+    font-size: 1.6875rem;
+    padding-left: 2rem;
     line-height: 1.2;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     transition: background $transition;
     a {
+      display: inline-block;
       border-bottom: 1px solid $black-color;
       transition: $transition;
+      position: relative;
+      &::before {
+        position: absolute;
+        content: "";
+        left: -2.8125rem;
+        top: 50%;
+        width: 2rem;
+        height: 2rem;
+        transform: translateY(-50%);
+        background: url('../img/telegram-2-icon.png') center / 2rem no-repeat;
+      }
 			@include hover {
 				color: $red-color;
 				border-bottom-color: $red-color;
 			}
     }
     @include hover {
-      background-position: left 6px center;
+      background-position: left 0.375rem center;
     }
   }
 
@@ -42,26 +51,29 @@
   &__logo {
     display: inline-block;
     position: relative;
-    bottom: -25px;
-    padding: 0 5px;
+    bottom: -1.5625rem;
+    padding: 0 0.3125rem;
     background-color: $white-color;
     z-index: 2;
+    img {
+      width: 5.625rem;
+    }
   }
 
   &__box {
-    max-width: 680px;
+    max-width: 42.5rem;
     width: 100%;
     background-color: $white-color;
-    padding-bottom: 45px;
-    margin: 0 auto 25px;
+    padding-bottom: 2.8125rem;
+    margin: 0 auto 1.5625rem;
     position: relative;
     &::after {
       position: absolute;
       content: '';
-      right: 30px;
+      right: 1.875rem;
       bottom: 0;
-      width: 80px;
-      height: 69px;
+      width: 5rem;
+      height: 4.3125rem;
       background: url('../img/telegram-big-icon.png') center / cover no-repeat;
     }
   }
@@ -72,13 +84,13 @@
     width: 100%;
     height: 100%;
     border: 3px solid #ebe0e3;
-    padding: 30px;
+    padding: 1.875rem;
     text-transform: uppercase;
-    font-size: 27px;
+    font-size: 1.6875rem;
     transition: box-shadow $transition;
 
     @include hover {
-      box-shadow: 0 0 10px $accent-color;
+      box-shadow: 0 0 0.625rem $accent-color;
       .subscribe__box-title {
         color: $red-color;
         span {
@@ -90,11 +102,11 @@
 
   &__box-subtitle {
     color: #238fc6;
-    font-size: 20px;
+    font-size: 1.25rem;
   }
 
   &__box-title {
-    font-size: 27px;
+    font-size: 1.6875rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
     transition: color $transition;
@@ -105,9 +117,26 @@
   }
 
   &__caption {
-    font-size: 18px;
-    max-width: 820px;
+    font-size: 1.125rem;
+    max-width: 51.25rem;
     text-align: center;
     margin: 0 auto;
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .subscribe {
+    background-size: contain;
+    padding: 6rem 0;
+    &__title {
+      font-size: 1.4rem;
+    }
+    &__box-title {
+      font-size: 1.35rem;
+    }
+    &__box-subtitle {
+      font-size: 1rem;
+    }
   }
 }

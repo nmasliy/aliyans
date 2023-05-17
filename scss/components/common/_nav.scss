@@ -2,12 +2,12 @@
   text-transform: uppercase;
   font-family: $font-tertiary;
   font-weight: 700;
-  font-size: 20px;
+  font-size: 1.25rem;
   li {
-    @include mb(22px);
-    background: url('../img/nav-bullet-icon.png') left center / 8px 16px
+    @include mb(1.375rem);
+    background: url('../img/nav-bullet-icon.png') left center / 0.5rem 1rem
       no-repeat;
-    padding-left: 25px;
+    padding-left: 1.5625rem;
 
     a {
       display: inline-block;
@@ -23,42 +23,8 @@
   }
 }
 
-.consult-btn {
-  display: inline-block;
-  font-size: 16px;
-  text-transform: uppercase;
-  padding: 15px 15px 15px 60px;
-  background: url('../img/btn-icon.png') center left 15px no-repeat;
-  border: 2px solid $accent-color;
-  transition: background $transition;
-  position: relative;
-  overflow: hidden;
-
-  &::after {
-    content: '';
-    position: absolute;
-    top: -50%;
-    right: -50%;
-    bottom: -50%;
-    left: -50%;
-    background: $gradient;
-    z-index: -1;
-    transform: rotateZ(-60deg) translate(0, -200%);
-    animation: shine 5s ease forwards infinite;
-  }
-
-  span {
-    text-decoration: underline;
-  }
-
-  @include hover {
-    background-color: $accent-color;
-    background-position: center left 20px;
-  }
-}
-
 .info-box {
-	font-size: 25px;
+	font-size: 1.5625rem;
 
 	&__phone {
     transition: border-color $transition;
@@ -72,8 +38,8 @@
   &__whatsapp {
     background-position: left center;
     background-repeat: no-repeat;
-    background-size: 22px;
-    padding-left: 30px;
+    background-size: 1.375rem;
+    padding-left: 1.875rem;
   }
 
   &__email,

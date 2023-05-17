@@ -1,5 +1,5 @@
 .catalog {
-	padding: 160px 0 110px;
+	padding: 10rem 0 6.875rem;
 
 	&__inner {
 		display: grid;
@@ -8,32 +8,50 @@
 	}
 
 	&__title {
-		margin-bottom: 40px;
+		margin-bottom: 2.5rem;
 		text-transform: uppercase;
 	}
 
 	&__subtitle {
-		font-size: 27px;
-		margin-bottom: 40px;
+		font-size: 1.6875rem;
+		margin-bottom: 2.5rem;
 		line-height: 1.4;
 		text-transform: uppercase;
 		background-repeat: no-repeat;
 		background-position: left top;
-		padding-left: 80px;
-		background-size: 41px;
+		padding-left: 5rem;
+		background-size: 2.5625rem;
 	}
 
 	&__text {
-		font-size: 20px;
+		font-size: 1.25rem;
 		text-transform: uppercase;
-		margin-bottom: 80px;
+		margin-bottom: 5rem;
 	}
 
 	&__btn {
-		margin-bottom: 90px;
+		margin-bottom: 5.625rem;
 	}
 
 	&__caption {
 		font-style: italic;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.catalog {
+		padding: 5rem 0;
+		&__text {
+			margin-bottom: 2.5rem;
+		}
+		&__btn {
+			margin-bottom: 3rem;
+		}
+		&__inner {
+			display: block;
+		}
+		&__content {
+			margin-bottom: 50px;
+		}
 	}
 }

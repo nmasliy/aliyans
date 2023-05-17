@@ -1,10 +1,10 @@
 .header {
-  padding: 50px 0 100px;
+  padding: 3.125rem 0 6.25rem;
   background: url('../img/header-bg.png') top left 20% no-repeat;
 
   &__top {
-    margin-bottom: 60px;
-    font-size: 25px;
+    margin-bottom: 3.75rem;
+    font-size: 1.5625rem;
     ul {
       display: flex;
       align-items: center;
@@ -17,24 +17,24 @@
     display: flex;
     align-items: center;
     font-style: italic;
-    font-size: 36px;
-    margin-bottom: 20px;
+    font-size: 2.25rem;
+    margin-bottom: 1.25rem;
     img {
       flex-shrink: 0;
-      margin-right: 8px;
+      margin-right: 0.5rem;
     }
   }
 
   &__title {
     position: relative;
-    font-size: 61px;
+    font-size: 3.8125rem;
     line-height: 1;
     font-family: $font-secondary;
     text-transform: uppercase;
-    margin-bottom: 12px;
+    margin-bottom: 0.75rem;
     span {
       display: block;
-      font-size: 105px;
+      font-size: 6.5625rem;
       color: $red-color;
     }
   }
@@ -47,23 +47,137 @@
 
   &__logo-keys {
     position: absolute;
-    right: 150px;
+    right: 9.375rem;
     top: 101%;
     animation: rotate 1.7s ease-in-out infinite;
     transform-origin: top left;
+    z-index: 2;
+    img {
+      width: 2.5rem;
+    }
   }
 
   &__logo-moon {
     position: absolute;
-    right: -60px;
-    top: 60px;
+    right: -3.75rem;
+    top: 3.75rem;
     animation: scale 2s ease-in-out infinite;
+    z-index: 2;
+    img {
+      width: 2.5625rem;
+    }
   }
 
   &__subtitle {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 500;
     font-family: $font-tertiary;
-    margin-left: 70px;
+    margin-left: 4.375rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .header {
+    background: transparent;
+
+    &__inner {
+      display: flex;
+      flex-direction: column-reverse;
+    }
+    
+    &__top {
+      ul {
+        flex-direction: column;
+      }
+      li {
+        @include mb(20px);
+      }
+    }
+    &__logo {
+      font-size: 2rem;
+      justify-content: center;
+      img {
+        width: 3.4375rem;
+      }
+    }
+    &__logo-keys {
+      right: 82px;
+    }
+    &__subtitle {
+      margin-left: 0;
+      margin-right: 10rem;
+    }
+    &__title {
+      font-size: 3rem;
+      span {
+        font-size: 5.2625rem;
+      }
+    }
+    &__body {
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: -1.5625rem;
+      padding-bottom: 40px;
+    }
+
+    &__col {
+      margin: 1.5625rem;
+      &:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 600px) {
+  .header {
+    padding: 3rem 0 4rem;
+
+    &__title {
+      display: inline-block;
+      font-size: 2rem;
+      span {
+        font-size: 4rem;
+      }
+    }
+    &__banner {
+      margin-left: 5px;
+    }
+    &__subtitle {
+      font-size: 1.1rem;
+      margin-right: 0;
+    }
+    &__top {
+      margin-bottom: 0;
+      ul {
+        align-items: flex-start;
+      }
+    }
+    &__logo {
+      justify-content: flex-start;
+      font-size: 1.5rem;
+    }
+    &__logo-keys {
+      right: 58px;
+    }
+    &__body {
+      display: block;
+      margin: 0;
+    }
+    &__inner {
+      margin: 0 auto;
+      max-width: 300px;
+    }
+    &__col {
+      margin: 0;
+      @include mb(50px);
+      &:first-child {
+        display: block;
+      }
+    }
   }
 }

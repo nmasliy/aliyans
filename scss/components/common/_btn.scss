@@ -6,7 +6,7 @@
   font-family: $font-secondary;
   background: linear-gradient(-45deg, #fae8e1 0%, #f8d9cc 100%);
   text-transform: uppercase;
-  font-size: 28px;
+  font-size: 1.75rem;
   font-weight: 700;
   transition: background $transition;
   cursor: pointer;
@@ -20,7 +20,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 24px 40px;
+    padding: 1.5rem 2.5rem;
     z-index: 2;
 
     &::after {
@@ -43,13 +43,13 @@
   &::before {
     position: absolute;
     content: '';
-    left: -50px;
-    width: 72px;
-    height: 24px;
+    left: -3.125rem;
+    width: 4.5rem;
+    height: 1.5rem;
     z-index: 2;
     top: 50%;
     transform: translateY(-50%);
-    background: url('../img/arrow-2-icon.png') center no-repeat;
+    background: url('../img/arrow-2-icon.png') center / cover no-repeat;
     animation: arrow-center 1.5s ease-in-out infinite;
   }
 
@@ -68,10 +68,10 @@
   }
 
   &__caption {
-    font-size: 20px;
+    font-size: 1.25rem;
     font-weight: 400;
     position: relative;
-    margin-left: 30px;
+    margin-left: 1.875rem;
     z-index: 2;
   }
 
@@ -88,8 +88,60 @@
 }
 
 .btn-small {
-  font-size: 22px;
+  font-size: 1.375rem;
   &__inner {
-    padding: 20px 65px 20px 50px;
+    padding: 1.25rem 4.0625rem 1.25rem 3.125rem;
+  }
+}
+
+.consult-btn {
+  display: inline-block;
+  font-size: 1rem;
+  text-transform: uppercase;
+  padding: 0.9375rem 0.9375rem 0.9375rem 3.75rem;
+  background: url('../img/btn-icon.png') center left 0.9375rem / 2rem no-repeat;
+  border: 2px solid $accent-color;
+  transition: background $transition;
+  position: relative;
+  overflow: hidden;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    bottom: -50%;
+    left: -50%;
+    background: $gradient;
+    z-index: -1;
+    transform: rotateZ(-60deg) translate(0, -200%);
+    animation: shine 5s ease forwards infinite;
+  }
+
+  span {
+    text-decoration: underline;
+  }
+
+  @include hover {
+    background-color: $accent-color;
+    background-position: center left 1.25rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .btn {
+    font-size: 1.25rem;
+    &::before {
+      width: 36px;
+      left: -2rem;
+      height: 12px;
+    }
+    &__inner {
+    padding: 1rem 2rem;
+    }
+    &__caption {
+      font-size: 1rem;
+      margin-left: 1rem;
+    }
   }
 }

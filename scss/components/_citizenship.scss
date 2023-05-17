@@ -2,7 +2,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  padding: 70px 0;
+  padding: 4.375rem 0;
   position: relative;
 
 	&::after {
@@ -35,48 +35,51 @@
   }
 
   &__left {
-    max-width: 550px;
+    max-width: 34.375rem;
     width: 100%;
     color: $white-color;
   }
 
   &__title {
-    margin-bottom: 45px;
+    margin-bottom: 2.8125rem;
   }
 
   &__text {
 		line-height: 1.3;
-    @include mb(35px);
+    @include mb(2.1875rem);
 
     strong {
       font-weight: 700;
     }
 
     p {
-      @include mb(12px);
+      @include mb(0.75rem);
     }
   }
 
   &__right {
-    max-width: 495px;
+    max-width: 30.9375rem;
 		position: relative;
     width: 100%;
   }
 
   &__caption {
-    font-size: 18px;
-    max-width: 360px;
+    font-size: 1.125rem;
+    max-width: 22.5rem;
     margin-left: auto;
     text-align: right;
-		margin-bottom: 100px;
+		margin-bottom: 6.25rem;
   }
 
   &__img {
 		position: absolute;
-		left: -238px;
+		left: -14.875rem;
 		top: 50%;
 		transform: translateY(-50%);
 		z-index: -1;
+    img {
+      width: 17.875rem;
+    }
   }
 
   &__btn {
@@ -86,7 +89,7 @@
     line-height: normal;
     background: linear-gradient(-45deg, #e0b59b 0%, #f9ddcb 100%);
     text-transform: uppercase;
-    font-size: 28px;
+    font-size: 1.75rem;
     transition: color $transition;
     position: relative;
 
@@ -103,7 +106,7 @@
     &::before {
       position: absolute;
       content: '';
-      inset: 7px;
+      inset: 0.4375rem;
       border: 3px solid $white-color;
       transition: $transition;
     }
@@ -115,7 +118,7 @@
     position: relative;
     width: 100%;
     height: 100%;
-    padding: 28px 60px;
+    padding: 1.75rem 3.75rem;
     &::after {
       content: '';
       position: absolute;
@@ -139,24 +142,88 @@
   }
 
   &__consult {
-    font-size: 20px;
+    font-size: 1.25rem;
     width: min-content;
     color: $white-color;
 		position: relative;
 		line-height: 1.1;
-		padding-left: 70px;
-		padding: 30px 0 0 70px;
-		margin-left: 80px;
+		padding-left: 4.375rem;
+		padding: 1.875rem 0 0 4.375rem;
+		margin-left: 5rem;
 
 		&::before {
 			position: absolute;
 			content: "";
-			width: 34px;
-			height: 42px;
+			width: 2.125rem;
+			height: 2.625rem;
 			left: 0;
 			top: 0;
 			animation: arrow-up 1.5s ease-in-out infinite;
-			background: url('../img/arrow-up-icon.png') center no-repeat;
+			background: url('../img/arrow-up-icon.png') center / cover no-repeat;
 		}
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .citizenship {
+    &__right {
+      max-width: 21rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .citizenship {
+    &::before {
+      width: 100%;
+    }
+    &__right {
+      position: static;
+      max-width: 100%;
+    }
+    &__img {
+      left: auto;
+      top: 0;
+      transform: none;
+      right: 30px;
+    }
+    &__caption {
+      color: $white-color;
+      margin-right: auto;
+      margin-left: 0;
+      text-align: left;
+      margin-bottom: 20px;
+    }
+    &__left {
+      margin-bottom: 40px;
+    }
+    &__inner {
+      padding-right: 21rem;
+      position: relative;
+      display: block;
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .citizenship {
+    &__caption {
+      margin-top: 14rem;
+      font-size: 1rem;
+    }
+    &__img {
+      bottom: 13.5rem;
+      right: 0;
+      top: auto;
+      img {
+        width: 14rem;
+      }
+    }
+    &__right {
+      padding-right: 16rem;
+    }
+    &__inner {
+      padding-right: 0;
+    }
   }
 }

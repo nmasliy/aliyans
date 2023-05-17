@@ -1,21 +1,22 @@
 .invest {
 	background: url('../img/divider-4.png') top center no-repeat;
-	padding: 140px 0 110px;
+	padding: 8.75rem 0 6.875rem;
 
 	&__title {
-		margin-right: 30px;
-		margin-bottom: 80px;
+		margin-right: 1.875rem;
+		margin-bottom: 5rem;
 	}
 
 	&__caption {
-		max-width: 580px;
+		max-width: 36.25rem;
 		background-repeat: no-repeat;
 		background-position: center left;
-		padding-left: 80px;
+		background-size: 4.3125rem;
+		padding-left: 5rem;
 		line-height: 1.4;
 		color: #c09479;
-		margin-bottom: 80px;
-		font-size: 20px;
+		margin-bottom: 5rem;
+		font-size: 1.25rem;
 		strong {
 			font-weight: 700;
 		}
@@ -27,32 +28,82 @@
 	}
 
 	&__inner {
-		@include grid(2, 100px);
+		@include grid(2, 6.25rem);
 	}
 	
 
 	&__col {
 		letter-spacing: 0.05em;
-		max-width: 280px;
+		max-width: 17.5rem;
 		&:nth-child(2) {
-			padding-right: 68px;
+			padding-right: 3rem;
+			padding-left: 1.25rem;
 		}
 		p {
-			@include mb(24px);
+			@include mb(1.5rem);
 		}
 	}
 
 	&__img-wrapper {
 		p {
-			@include mb(16px);
+			@include mb(1rem);
 		}
 		em {
-			font-size: 14px;
+			font-size: 0.875rem;
 			font-style: italic;
 		}
 	}
 
 	&__img-text {
-		margin-bottom: 30px;
+		margin-bottom: 1.875rem;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.invest {
+		background-size: contain;
+		padding: 6rem 0;
+
+		&__title {
+			margin-bottom: 3.5rem;
+		}
+
+		&__col {
+			max-width: 100%;
+			width: 50%;
+		}
+
+		&__content {
+			margin-bottom: 3rem;
+		}
+
+		&__caption {
+			margin-bottom: 2rem;
+		}
+
+		&__inner {
+			gap: 3rem;
+			display: block;
+		}
+		&__col {
+			&:nth-child(2) {
+				padding-right: 0;
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.invest {
+		&__row {
+			display: block;
+		}
+		&__col {
+			width: auto;
+			@include mb(1.5rem);
+			&:nth-child(2) {
+				padding-left: 0;
+			}
+		}
 	}
 }

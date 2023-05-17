@@ -1,13 +1,13 @@
 .footer {
-  padding: 160px 0 0;
+  padding: 10rem 0 0;
   background: url('../img/divider-5.png') top center no-repeat,
-	url('../img/footer-bg-2.png') right top 240px no-repeat;
+    url('../img/footer-bg-2.png') right top 15rem no-repeat;
 
   &__head {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 90px;
+    padding-bottom: 5.625rem;
   }
 
   &__logo {
@@ -15,19 +15,19 @@
     display: flex;
     align-items: center;
     font-style: italic;
-    font-size: 25px;
+    font-size: 1.5625rem;
     img {
       flex-shrink: 0;
-      margin-right: 8px;
+      margin-right: 0.5rem;
     }
   }
 
   &__title {
     position: relative;
     display: inline-block;
-    padding-left: 60px;
-    padding-right: 40px;
-    font-size: 23px;
+    padding-left: 3.75rem;
+    padding-right: 2.5rem;
+    font-size: 1.4375rem;
     font-family: $font-secondary;
     span {
       color: $red-color;
@@ -36,15 +36,18 @@
 
   &__keys {
     position: absolute;
-    left: 18px;
-    top: 5px;
-    animation: rotate 1.7s ease-in-out infinite;
-    transform-origin: top left;
+    left: 1.125rem;
+    top: 0.3125rem;
+    img {
+      animation: rotate 1.7s ease-in-out infinite;
+      transform-origin: top left;
+      width: 2.3125rem;
+    }
   }
 
   &__col {
     display: flex;
-		align-items: flex-start;
+    align-items: flex-start;
     flex-direction: column;
   }
 
@@ -52,51 +55,53 @@
     position: absolute;
     right: 0;
     top: 0;
-    animation: scale 2s ease-in-out infinite;
+    img {
+      animation: scale 2s ease-in-out infinite;
+      width: 1.875rem;
+    }
   }
 
   &__inner {
-    @include grid(3, 80px);
+    @include grid(3, 5rem);
     align-items: center;
-		margin-bottom: 100px;
+    margin-bottom: 6.25rem;
   }
 
   &__phone {
-    margin-bottom: 20px;
+    margin-bottom: 1.25rem;
   }
 
   &__email {
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
   }
 
   &__socials {
     display: flex;
     align-items: center;
-    margin-bottom: 30px;
+    margin-bottom: 1.875rem;
     li {
-      @include mr(20px);
+      @include mr(1.25rem);
     }
   }
 
-
   &__bottom {
-    padding: 80px 0 440px;
+    padding: 5rem 0 27.5rem;
     background-repeat: no-repeat;
     background-position: bottom;
   }
 
   &__address {
-    font-size: 17px;
-    padding-left: 35px;
-    padding-bottom: 20px;
+    font-size: 1.0625rem;
+    padding-left: 2.1875rem;
+    padding-bottom: 1.25rem;
     background-repeat: no-repeat;
     background-position: top left;
     position: relative;
     &::before {
       position: absolute;
       content: '';
-      height: 5px;
-      max-width: 500px;
+      height: 0.3125rem;
+      max-width: 31.25rem;
       width: 100%;
       background-color: $accent-color;
       left: 0;
@@ -108,30 +113,89 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 2.5rem;
     p {
-      font-size: 14px;
+      font-size: 0.875rem;
       text-transform: uppercase;
-      padding-right: 30px;
+      padding-right: 1.875rem;
       background-repeat: no-repeat;
       background-position: right center;
+      background-size: 1.5625rem 1.875rem;
     }
     a {
-      font-size: 18px;
-      border-bottom: 1px solid $black-color;
-			transition: border-color $transition, color $transition;
+      font-size: 1.125rem;
+      border-bottom: 0.0625rem solid $black-color;
+      transition: border-color $transition, color $transition;
 
-			@include hover {
-				border-color: $red-color;
-				color: $red-color;
-			}
+      @include hover {
+        border-color: $red-color;
+        color: $red-color;
+      }
     }
   }
 
   &__text {
-    font-size: 14px;
+    font-size: 0.875rem;
     color: #616161;
-    max-width: 660px;
+    max-width: 41.25rem;
     margin-left: auto;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .footer {
+    padding: 6rem 0 0;
+    background: url('../img/divider-5.png') top center no-repeat;
+    background-size: contain;
+
+    &__inner {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: -1.5625rem;
+      padding-bottom: 40px;
+    }
+
+    &__col {
+      margin: 1.5625rem;
+      &:first-child {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer {
+    &__bottom {
+      padding: 4rem 0 24rem;
+    }
+    &__title {
+      padding-left: 0;
+    }
+    &__keys {
+      left: 50%;
+      transform: translateX(-50%);
+      top: 100%;
+    }
+    &__head {
+      flex-direction: column;
+    }
+    &__bottom-line {
+      flex-direction: column;
+      align-items: flex-start;
+      p {
+        margin-bottom: 10px;
+      }
+    }
+    &__col {
+      &:nth-child(2) {
+        order: 3;
+      }
+    }
   }
 }

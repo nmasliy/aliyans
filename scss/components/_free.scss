@@ -1,26 +1,28 @@
 .free {
 	position: relative;
-	padding: 90px 0 150px;
-
+	padding: 5.625rem 0 9.375rem;
+	overflow: hidden;
+	
 	&__bg {
 		position: absolute;
 		left: 0; 
 		top: 0;
 		width: 100%;
-		height: 670px;
+		height: 41.875rem;
 		background-repeat: no-repeat;
 		background-position: top center;
 		background-size: cover;
 		&::before {
 			position: absolute;
 			content: "";
-			width: 1405px;
-			height: 40px;
-			left: 0;
+			max-width: 87.8125rem;
+			width: 100%;
+			height: 2.5rem;
+			left: 15px;
 			margin: 0 auto;
 			right: 0;
-			bottom: -10px;
-			background: url('../img/free-flag.png') left bottom no-repeat;
+			bottom: -0.625rem;
+			background: url('../img/free-flag.png') left bottom / 2rem no-repeat;
 		}
 	}
 	
@@ -33,41 +35,41 @@
 	&__left {
 		display: flex;
 		flex-direction: column;
-		max-width: 480px;
-		margin-right: 100px;
+		max-width: 30rem;
+		margin-right: 6.25rem;
 	}
 
 	&__title {
-		max-width: 480px;
-		font-size: 31px;
+		max-width: 30rem;
+		font-size: 1.9375rem;
 		text-transform: uppercase;
 		> div {
 			display: inline-block;
 			background-color: #ece4df;
-			margin-bottom: 3px;
-			padding: 2px;
+			margin-bottom: 0.1875rem;
+			padding: 0.125rem;
 		}
 	}
 
 	&__caption {
-		font-size: 20px;
+		font-size: 1.25rem;
 		font-style: italic;
 		margin-top: auto;
-		padding-bottom: 40px;
+		padding-bottom: 2.5rem;
 	}
 
 	&__box {
 		position: relative;
-		padding: 60px;
+		padding: 3.75rem;
 		background-color: $white-color;
-		max-width: 730px;
+		max-width: 45.625rem;
 		width: 100%;
 		margin-left: auto;
 
 		&::before {
 			position: absolute;
 			content: "";
-			inset: 3px;
+			inset: 0.1875rem;
 			border: 2px solid $accent-color;
 		}
 		 > *{
@@ -77,21 +79,21 @@
 	}
 
 	&__list {
-		@include grid(2, 30px);
-		margin-bottom: 60px;
+		@include grid(2, 1.875rem);
+		margin-bottom: 3.75rem;
 
 		li {
-			max-width: 220px;
-			padding-left: 40px;
-			background: url('../img/free-list-bullet.png') left center no-repeat;
+			max-width: 13.75rem;
+			padding-left: 2.5rem;
+			background: url('../img/free-list-bullet.png') left center / 1.0625rem no-repeat;
 		}
 	}
 
 	&__box-text {
-		font-size: 15px;
-		margin-bottom: 65px;
+		font-size: 0.9375rem;
+		margin-bottom: 4.0625rem;
 		font-style: italic;
-		max-width: 540px;
+		max-width: 33.75rem;
 	}
 
 	&__btn-wrapper {
@@ -100,5 +102,56 @@
 
 	&__btn {
 		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.free {
+		padding: 5rem 0 6rem;
+
+		&__inner {
+			display: block;
+		}
+
+		&__box {
+			margin: 0 auto;
+		}
+		&__title {
+			margin-bottom: 1rem;
+		}
+		&__left {
+			margin-bottom: 30px;
+		}
+		&__caption {
+			padding: 15px;
+			background-color: $white-color;
+		}
+		&__bg {
+			height: 70%;
+			&::before {
+				z-index: 2;
+			}
+			&::after {
+				position: absolute;
+				inset: 0;
+				content: "";
+				background-color: rgba(0, 0, 0, 30%);
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.free {
+		&__box {
+			padding: 1.75rem;
+		}
+		&__list {
+			gap: 0.8rem;
+			li {
+				align-self: center;
+				padding-left: 2.15rem;
+			}
+		}
 	}
 }

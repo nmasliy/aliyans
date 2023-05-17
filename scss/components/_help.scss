@@ -1,5 +1,5 @@
 .help {
-  padding: 20px 0 130px;
+  padding: 1.25rem 0 8.125rem;
 
   &__inner {
     display: flex;
@@ -9,8 +9,8 @@
   }
 
   &__title {
-    margin-bottom: 10px;
-    padding-bottom: 28px;
+    margin-bottom: 0.625rem;
+    padding-bottom: 1.75rem;
     span {
       display: block;
     }
@@ -18,92 +18,94 @@
 
   &__box {
     background-color: $accent-light-color;
-    margin-bottom: 100px;
-    padding: 35px 23px;
+    margin-bottom: 6.25rem;
+    padding: 2.1875rem 1.4375rem;
     p {
-      @include mb(30px);
+      @include mb(1.875rem);
     }
     li {
-      @include mb(24px);
+      @include mb(1.5rem);
     }
   }
 
   &__text {
     background-position: left center;
     background-repeat: no-repeat;
-    background-size: 83px;
-    padding-left: 90px;
+    background-size: 5.1875rem;
+    padding-left: 5.625rem;
     position: relative;
-    max-width: 560px;
+    max-width: 35rem;
     width: 100%;
     text-transform: uppercase;
-    font-size: 17px;
+    font-size: 1.0625rem;
     line-height: 1.4;
     font-family: $font-tertiary;
     &::before {
       position: absolute;
       content: '';
-      width: 110px;
-      height: 80px;
+      width: 6.875rem;
+      height: 5rem;
       left: 0;
-      bottom: 24px;
+      bottom: 1.5rem;
       z-index: -1;
       border: 2px solid $accent-color;
     }
   }
 
   &__left {
-    padding-top: 15px;
+    padding-top: 0.9375rem;
+    margin-right: 40px;
   }
 
   &__right {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    max-width: 610px;
+    max-width: 38.125rem;
     width: 100%;
-    padding-top: 285px;
+    padding-top: 17.8125rem;
     background-position: top right;
     background-repeat: no-repeat;
+    background-size: 37.75rem 15.8125rem;
   }
 
   &__objects {
-    margin-bottom: 40px;
-    max-width: 500px;
+    margin-bottom: 2.5rem;
+    max-width: 31.25rem;
   }
 
   &__objects-value {
     display: inline-block;
     letter-spacing: 0.03em;
-    font-size: 114px;
+    font-size: 7.125rem;
     line-height: 1.2;
     color: $accent-color;
     font-family: $font-tertiary;
     background-position: right center;
     background-repeat: no-repeat;
-    padding-right: 240px;
-    background-size: 227px;
-    min-height: 97px;
+    padding-right: 15rem;
+    background-size: 14.1875rem;
+    min-height: 6.0625rem;
   }
 
   &__objects-text {
-    font-size: 23px;
+    font-size: 1.4375rem;
     text-align: right;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
     line-height: 1.15;
   }
 
   &__objects-week {
-    font-size: 23px;
+    font-size: 1.4375rem;
     text-align: right;
     color: $accent-color;
   }
 
   &__btn {
     display: inline-block;
-    max-width: 500px;
+    max-width: 31.25rem;
     width: 100%;
-    font-size: 30px;
+    font-size: 1.875rem;
     text-align: center;
     text-transform: uppercase;
     border: 1px solid $accent-color;
@@ -115,10 +117,10 @@
         &-inner {
           border-color: $red-color;
           &::before {
-            transform: translateX(6px) translateY(-50%);
+            transform: translateX(0.375rem) translateY(-50%);
           }
           &::after {
-            transform: translateX(-6px) translateY(-50%);
+            transform: translateX(-0.375rem) translateY(-50%);
           }
         }
         &-wrapper {
@@ -132,7 +134,7 @@
       overflow: hidden;
       height: 100%;
       width: 100%;
-      padding: 35px 100px;
+      padding: 2.1875rem 6.25rem;
       position: relative;
       border: 3px solid transparent;
       transition: border-color $transition;
@@ -163,23 +165,65 @@
       &::after {
         position: absolute;
         content: '';
-        right: -60px;
+        right: -3.75rem;
         top: 50%;
         transform: translateY(-50%);
-        width: 41px;
-        height: 33px;
+        width: 2.5625rem;
+        height: 2.0625rem;
         transition: transform $transition;
-        background: url('../img/email-icon.png') center no-repeat;
+        background: url('../img/email-icon.png') center / cover no-repeat;
       }
       &::before {
         position: absolute;
         content: '>';
-        left: -30px;
+        left: -1.875rem;
         top: 50%;
         transform: translateY(-50%);
         transition: transform $transition;
         color: $red-color;
 				animation: arrow-center 1.5s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+
+@media screen and (max-width: 1024px) {
+  .help {
+    padding-bottom: 4rem;
+
+    &__left {
+      margin-bottom: 25px;
+      margin-right: 0;
+    }
+    &__right {
+      max-width: 400px;
+      margin: 0 auto;
+      align-items: center;
+    }
+    &__text {
+      margin: 0 auto;
+      max-width: 400px;
+      padding-left: 4.625rem;
+    }
+    &__inner {
+      display: block;
+    }
+    &__btn-wrapper {
+      padding: 2rem 2.25rem;
+    }
+    &__objects {
+      text-align: center;
+    }
+    &__objects-value {
+      font-size: 6rem;
+      padding-right: 10rem;
+      background-size: 10rem;
+    }
+    &__box {
+      margin-bottom: 4rem;
+      li {
+        @include mb(1rem);
       }
     }
   }

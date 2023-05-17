@@ -1,19 +1,51 @@
 .benefits {
-	padding: 100px 0;
+	padding: 6.25rem 0;
 
 	&__title {
-		margin-bottom: 100px;
+		margin-bottom: 6.25rem;
 	}
 
 	&__list {
-		@include grid(3, 65px);
+		@include grid(3, 4rem);
 	}
 
 	&__item {
-		font-size: 17px;
-		max-width: 350px;
+		font-size: 1.0625rem;
+		max-width: 21.875rem;
 		line-height: 1.3;
-		padding-left: 55px;
-		background: url('../img/benefits-list-bullet.png') left top no-repeat;
+		padding-left: 3.4375rem;
+		background: url('../img/benefits-list-bullet.png') left top / 1.9375rem no-repeat;
+	}
+}
+
+@media screen and (max-width: 1024px) {
+	.benefits {
+		&__list {
+			gap: 2rem;
+		}
+	}
+}
+
+@media screen and (max-width: 768px) {
+	.benefits {
+		&__list {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.benefits {
+		padding: 6rem 0;
+		&__title {
+			margin-bottom: 3rem;
+		}
+		&__list {
+			display: block;
+		}
+		&__item {
+			@include mb(2rem);
+			max-width: 100%;
+		}
 	}
 }
