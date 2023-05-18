@@ -1570,12 +1570,14 @@ button {
   .about__video::before {
     left: 80px;
     top: 50px;
-    right: -4px;
+    right: -6px;
+    bottom: -10px;
   }
   .about__video::after {
     left: 76px;
     top: 46px;
-    right: -8px;
+    right: -10px;
+    bottom: -14px;
   }
   .about__inner {
     display: -webkit-box;
@@ -1608,10 +1610,10 @@ button {
     display: block;
   }
   .about-info__list li:not(:last-child) {
-    margin-bottom: 25px;
+    margin-bottom: 1.5625rem;
   }
   .about-info__list p:not(:last-child) {
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
   }
 }
 .team {
@@ -2978,7 +2980,7 @@ button {
     margin-bottom: 30px;
   }
   .free__caption {
-    padding: 15px;
+    padding: 0.9375rem;
     background-color: #fff;
   }
   .free__bg {
@@ -2995,6 +2997,9 @@ button {
   }
 }
 @media screen and (max-width: 600px) {
+  .free__title {
+    font-size: 1.6rem;
+  }
   .free__left {
     margin-right: 0;
   }

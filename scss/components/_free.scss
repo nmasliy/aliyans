@@ -123,7 +123,7 @@
 			margin-bottom: 30px;
 		}
 		&__caption {
-			padding: 15px;
+			padding: 0.9375rem;
 			background-color: $white-color;
 		}
 		&__bg {
@@ -143,6 +143,9 @@
 
 @media screen and (max-width: 600px) {
 	.free {
+		&__title {
+			font-size: 1.6rem;
+		}
 		&__left {
 			margin-right: 0;
 		}
