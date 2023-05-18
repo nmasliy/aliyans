@@ -137,7 +137,8 @@
 @media screen and (max-width: 600px) {
   .header {
     padding: 3rem 0 4rem;
-
+    background-size: 200%;
+    
     &__title {
       display: inline-block;
       font-size: 2rem;

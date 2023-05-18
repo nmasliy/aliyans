@@ -25,10 +25,10 @@
     &::after {
       position: absolute;
       content: '';
-      width: 37px;
-      height: 38px;
-      background: url('../img/cube-icon.png') center no-repeat;
-      bottom: -18px;
+      width: 2.3125rem;
+      height: 2.375rem;
+      background: url('../img/cube-icon.png') center / 2.3125rem no-repeat;
+      bottom: -1.1875rem;
       left: 50%;
       transform: translateX(-50%);
       z-index: 6;
