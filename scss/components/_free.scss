@@ -143,6 +143,9 @@
 
 @media screen and (max-width: 600px) {
 	.free {
+		&__left {
+			margin-right: 0;
+		}
 		&__box {
 			padding: 1.75rem;
 		}
