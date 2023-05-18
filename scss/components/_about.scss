@@ -174,7 +174,20 @@
 }
 @media screen and (max-width: 768px) {
   .about {
+    padding-bottom: 2rem;
     &__video {
+      width: 100%;
+      margin-bottom: 2.5rem;
+      padding-bottom: 56.25%;
+
+      iframe {
+        position: absolute;
+        height: 100%;
+        left: 0;
+        top: 0;
+        width: 100%;
+      }
+      
       &::before {
         left: 80px;
         top: 50px;
@@ -194,7 +207,7 @@
       flex-direction: column-reverse;
     }
     &__content {
-			margin-bottom: 5rem;
+			margin-bottom: 3rem;
     }
   }
 }
@@ -202,6 +215,9 @@
 @media screen and (max-width: 600px) {
 	.about-info {
     padding-bottom: 3rem;
+    &__subtitle {
+      margin-bottom: 2rem;
+    }
     &__decor {
       font-size: 2.2rem;
     }

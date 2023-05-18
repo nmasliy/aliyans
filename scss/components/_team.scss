@@ -132,7 +132,7 @@
 	.team {
 		padding-bottom: 6rem;
 		&__head {
-			padding-right: 100px;
+			padding-right: 10rem;
 		}
 		&__list {
 			gap: 4rem;
@@ -148,9 +148,12 @@
 		&__head {
 			display: block;
 			margin-bottom: 4rem;
+			padding-right: 0;
+			background-position: right bottom;
 		}
 		&__btn {
 			font-size: 1.5rem;
+			margin-right: 100px;
 		}
 		&__title {
 			margin-right: 0;

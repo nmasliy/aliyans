@@ -1552,6 +1552,21 @@ button {
   }
 }
 @media screen and (max-width: 768px) {
+  .about {
+    padding-bottom: 2rem;
+  }
+  .about__video {
+    width: 100%;
+    margin-bottom: 2.5rem;
+    padding-bottom: 56.25%;
+  }
+  .about__video iframe {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
   .about__video::before {
     left: 80px;
     top: 50px;
@@ -1576,12 +1591,15 @@ button {
             flex-direction: column-reverse;
   }
   .about__content {
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
   }
 }
 @media screen and (max-width: 600px) {
   .about-info {
     padding-bottom: 3rem;
+  }
+  .about-info__subtitle {
+    margin-bottom: 2rem;
   }
   .about-info__decor {
     font-size: 2.2rem;
@@ -1749,7 +1767,7 @@ button {
     padding-bottom: 6rem;
   }
   .team__head {
-    padding-right: 100px;
+    padding-right: 10rem;
   }
   .team__list {
     gap: 4rem;
@@ -1762,9 +1780,12 @@ button {
   .team__head {
     display: block;
     margin-bottom: 4rem;
+    padding-right: 0;
+    background-position: right bottom;
   }
   .team__btn {
     font-size: 1.5rem;
+    margin-right: 100px;
   }
   .team__title {
     margin-right: 0;
