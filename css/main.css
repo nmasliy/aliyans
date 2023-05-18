@@ -2473,14 +2473,9 @@ button {
   display: -ms-flexbox;
   display: flex;
 }
-.gallery__line {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  animation: move-left 22s linear infinite reverse;
+.gallery .swiper-wrapper {
+  -webkit-transition-timing-function: linear;
+          transition-timing-function: linear;
 }
 .gallery__item {
   width: 20%;
@@ -2508,6 +2503,7 @@ button {
 }
 @media screen and (max-width: 600px) {
   .gallery__item {
+    width: 180px;
     height: 200px;
   }
 }
@@ -2525,8 +2521,7 @@ button {
 .animated-line__item {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  -webkit-animation: move-left 25s linear infinite;
-          animation: move-left 25s linear infinite;
+  animation: move-left 25s linear infinite reverse;
   letter-spacing: 0.02em;
 }
 .animated-line__item ul {

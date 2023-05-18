@@ -6,34 +6,34 @@ window.addEventListener('DOMContentLoaded', function () {
     const sumNode = objectsBlock.querySelector('.help__objects-value');
     const weekNode = objectsBlock.querySelector('.help__objects-week span');
 
-		let sum = +sumNode.dataset.startValue;
+    let sum = +sumNode.dataset.startValue;
     sumNode.textContent = sum;
-		
+
     const startDate = new Date(sumNode.dataset.startCounter);
     const currentDate = new Date();
     const passedWeeks = +dateDiff('w', startDate, currentDate);
-		
-		for (let i = 0; i < passedWeeks; i++) {
-			let days = 3;
 
-			if (passedWeeks % 2 == 0) {
-				days = 4;
-			} else if (passedWeeks % 5 == 0) {
-				days = 7;
-			} else if (passedWeeks % 3 == 0) {
-				days = 3;
-			} else if (passedWeeks % 7 == 0) {
-				days = 5;
-			} else if (passedWeeks % 9 == 0) {
-				days = 8;
-			}
+    for (let i = 0; i < passedWeeks; i++) {
+      let days = 3;
+
+      if (passedWeeks % 2 == 0) {
+        days = 4;
+      } else if (passedWeeks % 5 == 0) {
+        days = 7;
+      } else if (passedWeeks % 3 == 0) {
+        days = 3;
+      } else if (passedWeeks % 7 == 0) {
+        days = 5;
+      } else if (passedWeeks % 9 == 0) {
+        days = 8;
+      }
       // let days = Math.ceil(Math.random() * 10);
-			
-			sum += days;
+
+      sum += days;
 
       sumNode.textContent = sum;
       weekNode.textContent = days;
-		}
+    }
 
     // datepart: 'y', 'm', 'w', 'd', 'h', 'n', 's'
     function dateDiff(datepart, fromdate, todate) {
@@ -51,5 +51,19 @@ window.addEventListener('DOMContentLoaded', function () {
     }
   }
 
+  function initGallerySlider() {
+    const swiper = new Swiper('.gallery__inner', {
+      loop: true,
+      slidesPerView: 'auto',
+      speed: 3000,
+      freeMode: true,
+      autoplay: {
+        delay: 0,
+        disableOnInteraction: false,
+      },
+    });
+  }
+
   initObjectsCounter();
+  initGallerySlider();
 });
