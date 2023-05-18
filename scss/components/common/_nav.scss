@@ -12,25 +12,27 @@
     a {
       display: inline-block;
       border-bottom: 1px solid $black-color;
-      transition: transform $transition;
+      transition: border $transition, color $transition;
     }
 
     @include hover {
       a {
-        transform: translateX(-10px);
+        border-bottom-color: transparent;
+        color: $red-color;
       }
     }
   }
 }
 
 .info-box {
-	font-size: 1.5625rem;
+  font-size: 1.5625rem;
 
-	&__phone {
-    transition: border-color $transition;
+  &__phone {
+    transition: color $transition, border-color $transition;
     border-bottom: 1px solid transparent;
     @include hover {
-      border-color: $black-color;
+      border-color: $red-color;
+      color: $red-color;
     }
   }
 
@@ -48,13 +50,17 @@
     font-weight: 300;
     font-family: $font-tertiary;
     display: inline-block;
-    transition: transform $transition;
+    transition: color $transition;
     span {
       border-bottom: 1px solid $black-color;
+      transition: border $transition;
     }
 
     @include hover {
-      transform: scale(1.03);
+      color: $red-color;
+      span {
+        border-color: transparent;
+      }
     }
   }
 }

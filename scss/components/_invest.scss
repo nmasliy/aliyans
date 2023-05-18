@@ -61,7 +61,7 @@
 
 @media screen and (max-width: 1024px) {
 	.invest {
-		background-size: contain;
+		background-size: 150%;
 		padding: 6rem 0;
 
 		&__title {
@@ -95,6 +95,7 @@
 
 @media screen and (max-width: 600px) {
 	.invest {
+    background-size: 250%;
 		&__row {
 			display: block;
 		}

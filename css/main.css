@@ -237,6 +237,8 @@ button {
   border-bottom: 1px solid #444444;
   position: relative;
   z-index: 2;
+  -webkit-transition: border 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out;
 }
 .btn__caption {
   font-size: 1.25rem;
@@ -249,6 +251,12 @@ button {
   background-color: #cfa184;
 }
 @media (any-hover: hover) {
+  .btn:hover {
+    color: #bd2a45;
+  }
+  .btn:hover .btn__text {
+    border-color: transparent;
+  }
   .btn:hover::after {
     inset: -10px;
   }
@@ -295,6 +303,9 @@ button {
   .consult-btn:hover {
     background-color: #ddbda9;
     background-position: center left 1.25rem;
+  }
+  .consult-btn:hover span {
+    text-decoration: none;
   }
 }
 
@@ -626,15 +637,13 @@ button {
 .nav li a {
   display: inline-block;
   border-bottom: 1px solid #444444;
-  -webkit-transition: -webkit-transform 0.25s ease-in-out;
-  transition: -webkit-transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  -webkit-transition: border 0.25s ease-in-out, color 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out, color 0.25s ease-in-out;
 }
 @media (any-hover: hover) {
   .nav li:hover a {
-    -webkit-transform: translateX(-10px);
-            transform: translateX(-10px);
+    border-bottom-color: transparent;
+    color: #bd2a45;
   }
 }
 
@@ -642,13 +651,14 @@ button {
   font-size: 1.5625rem;
 }
 .info-box__phone {
-  -webkit-transition: border-color 0.25s ease-in-out;
-  transition: border-color 0.25s ease-in-out;
+  -webkit-transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out, border-color 0.25s ease-in-out;
   border-bottom: 1px solid transparent;
 }
 @media (any-hover: hover) {
   .info-box__phone:hover {
-    border-color: #444444;
+    border-color: #bd2a45;
+    color: #bd2a45;
   }
 }
 .info-box__telegram, .info-box__whatsapp {
@@ -661,18 +671,20 @@ button {
   font-weight: 300;
   font-family: "Roboto Condensed", sans-serif;
   display: inline-block;
-  -webkit-transition: -webkit-transform 0.25s ease-in-out;
-  transition: -webkit-transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
 }
 .info-box__email span, .info-box__telegram span, .info-box__whatsapp span {
   border-bottom: 1px solid #444444;
+  -webkit-transition: border 0.25s ease-in-out;
+  transition: border 0.25s ease-in-out;
 }
 @media (any-hover: hover) {
   .info-box__email:hover, .info-box__telegram:hover, .info-box__whatsapp:hover {
-    -webkit-transform: scale(1.03);
-            transform: scale(1.03);
+    color: #bd2a45;
+  }
+  .info-box__email:hover span, .info-box__telegram:hover span, .info-box__whatsapp:hover span {
+    border-color: transparent;
   }
 }
 
@@ -879,9 +891,6 @@ button {
 }
 
 @media screen and (max-width: 1024px) {
-  .header {
-    background: transparent;
-  }
   .header__inner {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -979,7 +988,8 @@ button {
     font-size: 1.5rem;
   }
   .header__logo-moon {
-    right: -3rem;
+    right: -3.25rem;
+    top: 1.75rem;
   }
   .header__logo-keys {
     right: 58px;
@@ -1143,7 +1153,7 @@ button {
 }
 @media (any-hover: hover) {
   .footer__bottom-line a:hover {
-    border-color: #bd2a45;
+    border-color: transparent;
     color: #bd2a45;
   }
 }
@@ -1158,7 +1168,7 @@ button {
   .footer {
     padding: 6rem 0 0;
     background: url("../img/divider-5.png") top center no-repeat;
-    background-size: contain;
+    background-size: 150%;
   }
   .footer__inner {
     display: -webkit-box;
@@ -1191,6 +1201,9 @@ button {
   }
 }
 @media screen and (max-width: 600px) {
+  .footer {
+    background-size: 250%;
+  }
   .footer__bottom {
     padding: 4rem 0 10rem;
     background-size: contain;
@@ -1233,7 +1246,8 @@ button {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  padding-bottom: 22%;
+  min-height: 420px;
+  padding: 40px 0;
 }
 .apartments__item:last-child::after {
   display: none;
@@ -1254,7 +1268,7 @@ button {
   width: 37px;
   height: 38px;
   background: url("../img/cube-icon.png") center no-repeat;
-  bottom: -13px;
+  bottom: -18px;
   left: 50%;
   -webkit-transform: translateX(-50%);
           transform: translateX(-50%);
@@ -1307,12 +1321,7 @@ button {
 
 @media screen and (max-width: 1024px) {
   .apartments__item {
-    padding-bottom: 35%;
-  }
-}
-@media screen and (max-width: 600px) {
-  .apartments__item {
-    padding-bottom: 45%;
+    min-height: 300px;
   }
 }
 .catalog {
@@ -1461,11 +1470,11 @@ button {
 }
 @media (any-hover: hover) {
   .about__link:hover {
-    background-position: left 0.9375rem center;
     color: #bd2a45;
+    background-position: left 0.9375rem center;
   }
   .about__link:hover span {
-    border-color: #bd2a45;
+    border-color: transparent;
   }
 }
 
@@ -1533,7 +1542,7 @@ button {
 }
 @media screen and (max-width: 1024px) {
   .about {
-    background-size: contain;
+    background-size: 150%;
     padding: 5rem 0;
   }
 
@@ -1597,6 +1606,10 @@ button {
   }
 }
 @media screen and (max-width: 600px) {
+  .about {
+    background-size: 250%;
+  }
+
   .about-info {
     padding-bottom: 3rem;
   }
@@ -1649,6 +1662,14 @@ button {
   text-decoration: underline;
   font-family: "Constantia", sans-serif;
   line-height: 1.2;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
+}
+@media (any-hover: hover) {
+  .team__btn:hover {
+    color: #bd2a45;
+    text-decoration: none;
+  }
 }
 .team__list {
   display: -ms-grid;
@@ -1662,7 +1683,7 @@ button {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 .team__img img {
   width: 100%;
@@ -1713,11 +1734,13 @@ button {
   font-size: 1.125rem;
   text-decoration: underline;
   margin-bottom: 1.875rem;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
 }
 @media (any-hover: hover) {
-  .team__phone:hover .team__flag {
-    -webkit-transform: translateX(-5px);
-            transform: translateX(-5px);
+  .team__phone:hover {
+    color: #bd2a45;
+    text-decoration: none;
   }
 }
 .team__flag {
@@ -1730,10 +1753,6 @@ button {
   background-size: cover;
   width: 1.75rem;
   height: 1.3125rem;
-  -webkit-transition: -webkit-transform 0.25s ease-in-out;
-  transition: -webkit-transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
 }
 .team__socials {
   display: -webkit-box;
@@ -1752,15 +1771,12 @@ button {
   background-repeat: no-repeat;
   background-position: left center;
   background-size: 1.25rem;
-  -webkit-transition: -webkit-transform 0.25s ease-in-out;
-  transition: -webkit-transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out, -webkit-transform 0.25s ease-in-out;
+  -webkit-transition: color 0.25s ease-in-out;
+  transition: color 0.25s ease-in-out;
 }
 @media (any-hover: hover) {
   .team__socials li a:hover {
-    -webkit-transform: scale(1.1);
-            transform: scale(1.1);
+    color: #bd2a45;
   }
 }
 
@@ -1944,7 +1960,7 @@ button {
     color: #bd2a45;
   }
   .help__btn:hover .help__btn-inner {
-    border-color: #bd2a45;
+    border-color: transparent;
   }
   .help__btn:hover .help__btn-inner::before {
     -webkit-transform: translateX(0.375rem) translateY(-50%);
@@ -2037,9 +2053,15 @@ button {
   }
   .help__text {
     margin: 0 auto;
-    font-size: 1rem;
-    max-width: 400px;
-    padding-left: 4.625rem;
+    font-size: 0.875rem;
+    max-width: 384px;
+    padding-left: 7.5rem;
+    min-height: 6rem;
+  }
+  .help__text::before {
+    width: 6rem;
+    bottom: 1rem;
+    height: 6rem;
   }
   .help__inner {
     display: block;
@@ -2117,7 +2139,7 @@ button {
 @media (any-hover: hover) {
   .subscribe__title a:hover {
     color: #bd2a45;
-    border-bottom-color: #bd2a45;
+    border-color: transparent;
   }
 }
 @media (any-hover: hover) {
@@ -2191,7 +2213,7 @@ button {
     color: #bd2a45;
   }
   .subscribe__link:hover .subscribe__box-title span {
-    border-color: #bd2a45;
+    border-color: transparent;
   }
 }
 .subscribe__box-subtitle {
@@ -2219,7 +2241,7 @@ button {
 
 @media screen and (max-width: 1024px) {
   .subscribe {
-    background-size: contain;
+    background-size: 150%;
     padding: 6rem 0;
   }
   .subscribe__title {
@@ -2230,6 +2252,11 @@ button {
   }
   .subscribe__box-subtitle {
     font-size: 1rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .subscribe {
+    background-size: 250%;
   }
 }
 .citizenship {
@@ -2334,7 +2361,7 @@ button {
     inset: 0;
   }
   .citizenship__btn:hover .citizenship__btn-wrapper span {
-    border-color: #bd2a45;
+    border-color: transparent;
   }
 }
 .citizenship__btn::before {
@@ -2560,7 +2587,8 @@ button {
 .animated-line__item {
   -ms-flex-negative: 0;
       flex-shrink: 0;
-  animation: move-left 25s linear infinite reverse;
+  -webkit-animation: move-left 65s linear infinite;
+          animation: move-left 65s linear infinite;
   letter-spacing: 0.02em;
 }
 .animated-line__item ul {
@@ -2642,7 +2670,7 @@ button {
 @media screen and (max-width: 1024px) {
   .transfer {
     padding: 9rem 0 6rem;
-    background-size: contain;
+    background-size: 150%;
   }
   .transfer__inner {
     gap: 1.5rem;
@@ -2678,6 +2706,11 @@ button {
   }
   .transfer__footer-text {
     margin-left: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  .invest {
+    background-size: 250%;
   }
 }
 .online {
@@ -2819,7 +2852,7 @@ button {
 
 @media screen and (max-width: 1024px) {
   .invest {
-    background-size: contain;
+    background-size: 150%;
     padding: 6rem 0;
   }
   .invest__title {
@@ -2844,6 +2877,9 @@ button {
   }
 }
 @media screen and (max-width: 600px) {
+  .invest {
+    background-size: 250%;
+  }
   .invest__row {
     display: block;
   }

@@ -85,10 +85,10 @@
     }
 
     @include hover {
-      background-position: left 0.9375rem center;
       color: $red-color;
+      background-position: left 0.9375rem center;
       span {
-        border-color: $red-color;
+        border-color: transparent;
       }
     }
   }
@@ -155,7 +155,7 @@
 
 @media screen and (max-width: 1024px) {
   .about {
-    background-size: contain;
+    background-size: 150%;
 		padding: 5rem 0;
   }
 	.about-info {
@@ -215,6 +215,9 @@
 }
 
 @media screen and (max-width: 600px) {
+  .about {
+    background-size: 250%;
+  }
 	.about-info {
     padding-bottom: 3rem;
     &__subtitle {

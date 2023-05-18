@@ -5,7 +5,8 @@
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    padding-bottom: 22%;
+    min-height: 420px;
+    padding: 40px 0;
 
     &:last-child::after {
       display: none;
@@ -27,7 +28,7 @@
       width: 37px;
       height: 38px;
       background: url('../img/cube-icon.png') center no-repeat;
-      bottom: -13px;
+      bottom: -18px;
       left: 50%;
       transform: translateX(-50%);
       z-index: 6;
@@ -73,15 +74,9 @@
 @media screen and (max-width: 1024px) {
   .apartments {
     &__item {
-      padding-bottom: 35%;
+      min-height: 300px;
     }
   }
 }
 
-@media screen and (max-width: 600px) {
-  .apartments {
-    &__item {
-      padding-bottom: 45%;
-    }
-  }
-}
+

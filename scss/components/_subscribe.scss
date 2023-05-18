@@ -35,7 +35,7 @@
       }
 			@include hover {
 				color: $red-color;
-				border-bottom-color: $red-color;
+				border-color: transparent;
 			}
     }
     @include hover {
@@ -94,7 +94,7 @@
       .subscribe__box-title {
         color: $red-color;
         span {
-          border-color: $red-color;
+          border-color: transparent;
         }
       }
     }
@@ -127,7 +127,7 @@
 
 @media screen and (max-width: 1024px) {
   .subscribe {
-    background-size: contain;
+    background-size: 150%;
     padding: 6rem 0;
     &__title {
       font-size: 1.4rem;
@@ -138,5 +138,11 @@
     &__box-subtitle {
       font-size: 1rem;
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .subscribe {
+    background-size: 250%;
   }
 }

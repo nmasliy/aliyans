@@ -56,7 +56,7 @@
 @media screen and (max-width: 1024px) {
   .transfer {
     padding: 9rem 0 6rem;
-    background-size: contain;
+    background-size: 150%;
 
     &__inner {
       gap: 1.5rem;
@@ -94,5 +94,11 @@
     &__footer-text {
       margin-left: 0;
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .invest {
+    background-size: 250%;
   }
 }

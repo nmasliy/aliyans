@@ -78,8 +78,6 @@
 
 @media screen and (max-width: 1024px) {
   .header {
-    background: transparent;
-
     &__inner {
       display: flex;
       flex-direction: column-reverse;
@@ -163,7 +161,8 @@
       font-size: 1.5rem;
     }
     &__logo-moon {
-      right: -3rem;
+      right: -3.25rem;
+      top: 1.75rem;
     }
     &__logo-keys {
       right: 58px;

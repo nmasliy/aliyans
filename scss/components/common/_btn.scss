@@ -65,6 +65,7 @@
     border-bottom: 1px solid $black-color;
     position: relative;
     z-index: 2;
+    transition: border $transition;
   }
 
   &__caption {
@@ -81,6 +82,10 @@
   }
 
   @include hover {
+    color: $red-color;
+    .btn__text {
+      border-color: transparent;
+    }
     &::after {
       inset: -10px;
     }
@@ -125,6 +130,9 @@
   @include hover {
     background-color: $accent-color;
     background-position: center left 1.25rem;
+    span {
+      text-decoration: none;
+    }
   }
 }
 
@@ -137,7 +145,7 @@
       height: 12px;
     }
     &__inner {
-    padding: 1rem 2rem;
+      padding: 1rem 2rem;
     }
     &__caption {
       font-size: 1rem;

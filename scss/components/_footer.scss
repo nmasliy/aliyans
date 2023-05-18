@@ -129,7 +129,7 @@
       transition: border-color $transition, color $transition;
 
       @include hover {
-        border-color: $red-color;
+        border-color: transparent;
         color: $red-color;
       }
     }
@@ -147,7 +147,7 @@
   .footer {
     padding: 6rem 0 0;
     background: url('../img/divider-5.png') top center no-repeat;
-    background-size: contain;
+    background-size: 150%;
 
     &__inner {
       display: flex;
@@ -172,6 +172,7 @@
 
 @media screen and (max-width: 600px) {
   .footer {
+    background-size: 250%;
     &__bottom {
       padding: 4rem 0 10rem;
       background-size: contain;

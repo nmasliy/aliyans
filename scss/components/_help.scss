@@ -115,7 +115,7 @@
       color: $red-color;
       .help__btn {
         &-inner {
-          border-color: $red-color;
+          border-color: transparent;
           &::before {
             transform: translateX(0.375rem) translateY(-50%);
           }
@@ -203,9 +203,15 @@
     }
     &__text {
       margin: 0 auto;
-      font-size: 1rem;
-      max-width: 400px;
-      padding-left: 4.625rem;
+      font-size: 0.875rem;
+      max-width: 384px;
+      padding-left: 7.5rem;
+      min-height: 6rem;
+      &::before {
+        width: 6rem;
+        bottom: 1rem;
+        height: 6rem;
+      }
     }
     &__inner {
       display: block;

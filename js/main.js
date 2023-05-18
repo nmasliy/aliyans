@@ -26,6 +26,8 @@ window.addEventListener('DOMContentLoaded', function () {
         days = 5;
       } else if (passedWeeks % 9 == 0) {
         days = 8;
+      } else if (passedWeeks % 11 == 0) {
+        days = 9;
       }
       // let days = Math.ceil(Math.random() * 10);
 
