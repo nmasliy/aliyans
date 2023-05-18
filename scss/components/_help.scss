@@ -203,6 +203,7 @@
     }
     &__text {
       margin: 0 auto;
+      font-size: 1rem;
       max-width: 400px;
       padding-left: 4.625rem;
     }
@@ -226,5 +227,12 @@
         @include mb(1rem);
       }
     }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .help__right {
+    background-size: contain;
+    padding-top: 15rem;
   }
 }

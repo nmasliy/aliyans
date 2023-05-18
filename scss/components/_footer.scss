@@ -94,6 +94,7 @@
     font-size: 1.0625rem;
     padding-left: 2.1875rem;
     padding-bottom: 1.25rem;
+    background-size: 1.1875rem 1.6875rem;
     background-repeat: no-repeat;
     background-position: top left;
     position: relative;
@@ -124,7 +125,7 @@
     }
     a {
       font-size: 1.125rem;
-      border-bottom: 0.0625rem solid $black-color;
+      border-bottom: 1px solid $black-color;
       transition: border-color $transition, color $transition;
 
       @include hover {
@@ -172,7 +173,8 @@
 @media screen and (max-width: 600px) {
   .footer {
     &__bottom {
-      padding: 4rem 0 24rem;
+      padding: 4rem 0 10rem;
+      background-size: contain;
     }
     &__title {
       padding-left: 0;

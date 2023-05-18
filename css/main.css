@@ -677,29 +677,7 @@ button {
 }
 
 .page-wrapper {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: 100%;
-  grid-template-columns: 100%;
-  -ms-grid-rows: auto 1fr auto;
-  grid-template-rows: auto 1fr auto;
-  min-height: 100vh;
   overflow: hidden;
-}
-
-.page-wrapper > *:nth-child(1) {
-  -ms-grid-row: 1;
-  -ms-grid-column: 1;
-}
-
-.page-wrapper > *:nth-child(2) {
-  -ms-grid-row: 2;
-  -ms-grid-column: 1;
-}
-
-.page-wrapper > *:nth-child(3) {
-  -ms-grid-row: 3;
-  -ms-grid-column: 1;
 }
 
 .container {
@@ -918,6 +896,10 @@ button {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    text-align: center;
   }
   .header__top li:not(:last-child) {
     margin-bottom: 20px;
@@ -985,42 +967,22 @@ button {
     margin-left: 5px;
   }
   .header__subtitle {
+    text-align: center;
+    width: 54%;
+    margin-right: auto;
     font-size: 1.1rem;
-    margin-right: 0;
   }
   .header__top {
     margin-bottom: 0;
   }
-  .header__top ul {
-    -webkit-box-align: start;
-        -ms-flex-align: start;
-            align-items: flex-start;
-  }
   .header__logo {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
     font-size: 1.5rem;
+  }
+  .header__logo-moon {
+    right: -3rem;
   }
   .header__logo-keys {
     right: 58px;
-  }
-  .header__body {
-    display: block;
-    margin: 0;
-  }
-  .header__inner {
-    margin: 0 auto;
-    max-width: 300px;
-  }
-  .header__col {
-    margin: 0;
-  }
-  .header__col:not(:last-child) {
-    margin-bottom: 50px;
-  }
-  .header__col:first-child {
-    display: block;
   }
 }
 .footer {
@@ -1138,6 +1100,7 @@ button {
   font-size: 1.0625rem;
   padding-left: 2.1875rem;
   padding-bottom: 1.25rem;
+  background-size: 1.1875rem 1.6875rem;
   background-repeat: no-repeat;
   background-position: top left;
   position: relative;
@@ -1174,7 +1137,7 @@ button {
 }
 .footer__bottom-line a {
   font-size: 1.125rem;
-  border-bottom: 0.0625rem solid #444444;
+  border-bottom: 1px solid #444444;
   -webkit-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
   transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
@@ -1229,7 +1192,8 @@ button {
 }
 @media screen and (max-width: 600px) {
   .footer__bottom {
-    padding: 4rem 0 24rem;
+    padding: 4rem 0 10rem;
+    background-size: contain;
   }
   .footer__title {
     padding-left: 0;
@@ -1374,6 +1338,7 @@ button {
   background-position: left top;
   padding-left: 5rem;
   background-size: 2.5625rem;
+  max-width: 45rem;
 }
 .catalog__text {
   font-size: 1.25rem;
@@ -1390,6 +1355,10 @@ button {
 @media screen and (max-width: 1024px) {
   .catalog {
     padding: 5rem 0;
+  }
+  .catalog__subtitle {
+    font-size: 1.4rem;
+    padding-left: 4rem;
   }
   .catalog__text {
     margin-bottom: 2.5rem;
@@ -1776,7 +1745,7 @@ button {
 @media screen and (max-width: 768px) {
   .team__head {
     display: block;
-    margin-bottom: 5rem;
+    margin-bottom: 4rem;
   }
   .team__btn {
     font-size: 1.5rem;
@@ -2029,6 +1998,7 @@ button {
   }
   .help__text {
     margin: 0 auto;
+    font-size: 1rem;
     max-width: 400px;
     padding-left: 4.625rem;
   }
@@ -2051,6 +2021,12 @@ button {
   }
   .help__box li:not(:last-child) {
     margin-bottom: 1rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  .help__right {
+    background-size: contain;
+    padding-top: 15rem;
   }
 }
 .subscribe {
@@ -2418,12 +2394,15 @@ button {
   }
 }
 @media screen and (max-width: 600px) {
+  .citizenship__left {
+    max-width: 340px;
+  }
   .citizenship__caption {
-    margin-top: 14rem;
+    margin-top: 15rem;
     font-size: 1rem;
   }
   .citizenship__img {
-    bottom: 13.5rem;
+    bottom: 13rem;
     right: 0;
     top: auto;
   }
@@ -2431,7 +2410,7 @@ button {
     width: 14rem;
   }
   .citizenship__right {
-    padding-right: 16rem;
+    padding-right: 15rem;
   }
   .citizenship__inner {
     padding-right: 0;

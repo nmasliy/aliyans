@@ -207,12 +207,15 @@
 
 @media screen and (max-width: 600px) {
   .citizenship {
+    &__left {
+      max-width: 340px;
+    }
     &__caption {
-      margin-top: 14rem;
+      margin-top: 15rem;
       font-size: 1rem;
     }
     &__img {
-      bottom: 13.5rem;
+      bottom: 13rem;
       right: 0;
       top: auto;
       img {
@@ -220,7 +223,7 @@
       }
     }
     &__right {
-      padding-right: 16rem;
+      padding-right: 15rem;
     }
     &__inner {
       padding-right: 0;

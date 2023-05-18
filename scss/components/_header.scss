@@ -88,6 +88,8 @@
     &__top {
       ul {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
       li {
         @include mb(20px);
@@ -120,6 +122,7 @@
       padding-bottom: 40px;
     }
 
+
     &__col {
       margin: 1.5625rem;
       &:first-child {
@@ -148,36 +151,22 @@
       margin-left: 5px;
     }
     &__subtitle {
+      text-align: center;
+      width: 54%;
+      margin-right: auto;
       font-size: 1.1rem;
-      margin-right: 0;
     }
     &__top {
       margin-bottom: 0;
-      ul {
-        align-items: flex-start;
-      }
     }
     &__logo {
-      justify-content: flex-start;
       font-size: 1.5rem;
+    }
+    &__logo-moon {
+      right: -3rem;
     }
     &__logo-keys {
       right: 58px;
-    }
-    &__body {
-      display: block;
-      margin: 0;
-    }
-    &__inner {
-      margin: 0 auto;
-      max-width: 300px;
-    }
-    &__col {
-      margin: 0;
-      @include mb(50px);
-      &:first-child {
-        display: block;
-      }
     }
   }
 }
