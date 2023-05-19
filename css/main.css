@@ -3053,4 +3053,10 @@ button {
     padding-left: 2.15rem;
   }
 }
+.quiz__step {
+  display: none;
+}
+.quiz__step.is-active {
+  display: block;
+}
 /*# sourceMappingURL=main.css.map */

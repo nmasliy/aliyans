@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Aliyans Gayrimenkul Опрос</title>
+	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,regular,italic,700,700italic"
+		rel="stylesheet" />
+	<link rel="stylesheet" href="css/vendor.css">
+	<link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+
+	<section class="quiz">
+		<div class="container">
+			<form class="quiz__inner" action="#">
+				<h1>Quiz</h1>
+				<div class="quiz__step is-active" data-step="1">
+					Шаг 1
+					Пройти тест
+					<div class="quiz__footer">
+						<button class="quiz__btn" type="button" data-next="2">Пройти тест</button>
+						<div class="quiz__back">
+							--- или можно
+							<a href="./" target="_blank">Вернуться назад</a>
+						</div>
+					</div>
+				</div>
+				<div class="quiz__step" data-step="2">
+					Шаг 2
+					<button class="quiz__btn" disabled type="button" data-next="3">Продолжить</button>
+					<div class="quiz__footer">
+						<button class="quiz__btn-back" data-next="1" type="button">Вернуться назад</button>
+						<a href="#" target="_blank">Политика конфиденциальности</a>
+					</div>
+				</div>
+				<div class="quiz__step" data-step="3">
+					Шаг 3
+					<button class="quiz__btn" disabled type="button" data-next="4">Продолжить</button>
+					<div class="quiz__footer">
+						<button class="quiz__btn-back" data-next="2" type="button">Вернуться назад</button>
+						<a href="#" target="_blank">Политика конфиденциальности</a>
+					</div>
+				</div>
+				<div class="quiz__step" data-step="4">
+					Шаг 4
+					<button class="quiz__btn" disabled type="button" data-next="5">Продолжить</button>
+					<div class="quiz__footer">
+						<button class="quiz__btn-back" data-next="3" type="button">Вернуться назад</button>
+						<a href="#" target="_blank">Политика конфиденциальности</a>
+					</div>
+				</div>
+				<div class="quiz__step" data-step="5">
+					Шаг 5
+					<button class="quiz__btn" disabled type="button" data-next="6">Продолжить</button>
+					<div class="quiz__footer">
+						<button class="quiz__btn-back" data-next="4" type="button">Вернуться назад</button>
+						<a href="#" target="_blank">Политика конфиденциальности</a>
+					</div>
+				</div>
+				<div class="quiz__step" data-step="6">
+					Шаг 6
+					<button class="quiz__btn">Отправить</button>
+					<div class="quiz__footer">
+						<button class="quiz__btn-back" data-next="5" type="button">Вернуться назад</button>
+						<a href="#" target="_blank">Политика конфиденциальности</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+
+	<script src="js/main.js"></script>
+
+</body>
+
+</html>

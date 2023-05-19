@@ -54,6 +54,8 @@ window.addEventListener('DOMContentLoaded', function () {
   }
 
   function initGallerySlider() {
+    if (!document.querySelector('.gallery__inner')) return;
+
     const swiper = new Swiper('.gallery__inner', {
       loop: true,
       slidesPerView: 'auto',
@@ -66,6 +68,59 @@ window.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  function initQuiz() {
+    const quiz = document.querySelector('.quiz');
+
+    if (!quiz) return;
+
+    quiz.addEventListener('click', (e) => {
+      const btn = e.target.closest('[data-next]');
+
+      if (btn) {
+        const nextStep = +btn.dataset.next;
+
+        goToStep(nextStep);
+      }
+    });
+
+    validateSteps();
+
+    function goToStep(step) {
+      const activeStep = document.querySelector('.quiz__step.is-active');
+      const nextStep = document.querySelector(
+        `.quiz__step[data-step="${step}"]`
+      );
+
+      activeStep.classList.remove('is-active');
+      nextStep.classList.add('is-active');
+    }
+
+    function validateSteps() {
+      const steps = document.querySelectorAll('.quiz__step');
+
+      steps.forEach((step) => validateStep(step));
+
+      function validateStep(step) {
+        let isValid = false;
+
+        const inputs = step.querySelectorAll('input');
+
+        inputs.forEach((input) => {
+          input.addEventListener('change', (e) => {
+
+            if (input.value && input.value != '') {
+              isValid = true;
+            } else {
+              isValid = false;
+            }
+            
+          });
+        });
+      }
+    }
+  }
+
   initObjectsCounter();
   initGallerySlider();
+  initQuiz();
 });
