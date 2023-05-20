@@ -83,8 +83,6 @@ window.addEventListener('DOMContentLoaded', function () {
       }
     });
 
-    validateSteps();
-
     function goToStep(step) {
       const activeStep = document.querySelector('.quiz__step.is-active');
       const nextStep = document.querySelector(
@@ -95,32 +93,167 @@ window.addEventListener('DOMContentLoaded', function () {
       nextStep.classList.add('is-active');
     }
 
-    function validateSteps() {
-      const steps = document.querySelectorAll('.quiz__step');
+  }
 
-      steps.forEach((step) => validateStep(step));
+  // Forms
 
-      function validateStep(step) {
-        let isValid = false;
+  const phoneInputs = document.querySelectorAll('input[type="tel"]');
 
-        const inputs = step.querySelectorAll('input');
+  phoneInputs.forEach(input => {
+    const inputMask = new Inputmask('+7 (999) 99-99-99');
+    inputMask.mask(input);
+  })
 
-        inputs.forEach((input) => {
-          input.addEventListener('change', (e) => {
+  const rules2 = [
+    {
+      ruleSelector: '.quiz__input--name',
+      rules: [
+        {
+          rule: 'required',
+          value: true,
+          errorMessage: 'Введите имя!'
+        },
+      ]
+    },
+  ]
 
-            if (input.value && input.value != '') {
-              isValid = true;
-            } else {
-              isValid = false;
-            }
-            
+
+  validateForms('.quiz__inner', rules2, {}, '.quiz__step[data-step="2"]')
+  validateForms('.quiz__inner', [], {}, '.quiz__step[data-step="3"]', true)
+  validateForms('.quiz__inner', [], {}, '.quiz__step[data-step="4"]', true)
+  validateForms('.quiz__inner', [], {}, '.quiz__step[data-step="5"]', true)
+  
+
+  function validateForms(selector, rules, afterSend, stepNode = selector, checkboxes) {
+    const form = document?.querySelector(selector);
+    const btn = document.querySelector(stepNode + ' .quiz__btn');
+    const telSelector = form?.querySelector('input[type="tel"]');
+    const checkboxesSelector = stepNode + ' .quiz__content'; 
+  
+    if (!form) {
+      console.error('Нет такого селектора!');
+      return false;
+    }
+  
+    if (telSelector) {
+  
+      for (let item of rules) {
+        if (item.tel) {
+          item.rules.push({
+            rule: 'function',
+            validator: function () {
+              const phone = telSelector.inputmask.unmaskedvalue();
+              return phone.length === 9;
+            },
+            errorMessage: item.telError,
           });
-        });
+        }
       }
+    }
+  
+    const validation = new window.JustValidate(selector, {
+      errorLabelStyle: {
+        color: '#c30303',
+      },
+    });
+
+    if (rules) {
+      for (let item of rules) {
+        validation.addField(item.ruleSelector, item.rules);
+      }
+    }
+
+    if (checkboxes) {
+      validation.addRequiredGroup(
+        checkboxesSelector,
+        'Выберите хотя-бы один пункт!'
+      )
+    }
+
+    validation.onValidate((ev) => {
+      if (!btn) return;
+
+      if (ev.isValid) {
+        btn.disabled = false;
+      } else {
+        btn.disabled = true;
+      }
+    })
+
+    validation.onSuccess((ev) => {
+      let formData = new FormData(ev.target);
+  
+      let xhr = new XMLHttpRequest();
+  
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            if (afterSend) {
+              afterSend();
+            }
+          }
+        }
+      };
+  
+      xhr.open('POST', 'mail.php', true);
+      xhr.send(formData);
+  
+      ev.target.reset();
+    });
+  }
+
+  function validateLastStep() {
+    const form = document?.querySelector('.quiz__inner');
+
+    const quizPhone = document.querySelector('.quiz__input--tel');
+    const quizSubmit = document.querySelector('.quiz__btn--submit');
+    const quizEmail = document.querySelector('.quiz__input--email');
+    const quizTerms = document.querySelector('.quiz__terms input');
+    const inputs = document.querySelectorAll('.quiz__content--final input');
+    let isValid = false;
+
+    inputs.forEach((input) => {
+      input.addEventListener('input', function(e) {
+        const phoneValid = quizPhone.inputmask.unmaskedvalue().length === 9 ;
+        const emailValid = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(quizEmail.value);
+        
+        if ((phoneValid || emailValid) && quizTerms.checked) {
+            isValid = true;
+            quizSubmit.disabled = false;
+          }  else {
+            isValid = false;
+            quizSubmit.disabled = true;
+          }
+      })
+    })
+
+
+    form.addEventListener('submit', sendForm)
+  
+    function sendForm(ev) {
+      let formData = new FormData(ev.target);
+  
+      let xhr = new XMLHttpRequest();
+  
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState === 4) {
+          if (xhr.status === 200) {
+            if (afterSend) {
+              afterSend();
+            }
+          }
+        }
+      };
+  
+      xhr.open('POST', 'mail.php', true);
+      xhr.send(formData);
+  
+      ev.target.reset();
     }
   }
 
   initObjectsCounter();
   initGallerySlider();
   initQuiz();
+  validateLastStep();
 });

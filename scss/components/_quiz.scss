@@ -1,8 +1,277 @@
 .quiz {
-	&__step {
-		display: none;
-		&.is-active {
-			display: block;
-	}
-	}
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .container {
+    flex-grow: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__subtitle {
+    margin-bottom: 3.125rem;
+    font-size: 1.375rem;
+    text-transform: uppercase;
+
+    span {
+      font-size: 2.1875rem;
+    }
+  }
+
+  &__title {
+    font-family: $font-tertiary;
+    text-transform: uppercase;
+    font-size: 3.75rem;
+    line-height: 1.2;
+    text-align: center;
+    margin-bottom: 1.875rem;
+    span {
+      margin-right: 1.875rem;
+      &::after {
+        display: inline-block;
+        width: 5.125rem;
+        height: 5.25rem;
+        margin-left: 30px;
+        content: "";
+        background: url("../img/fire-icon.png") center / cover no-repeat;
+      }
+    }
+  }
+
+  &__caption {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    span {
+      font-size: 1.375rem;
+      color: $red-color;
+    }
+  }
+
+  &__btn-start {
+    max-width: 32.8125rem;
+    width: 100%;
+    margin-bottom: 3.75rem;
+    .btn__text {
+      border: none;
+    }
+  }
+
+  &__inner {
+    flex-grow: 1;
+    max-width: 67.5rem;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    padding: 3.75rem;
+    background-color: #fff;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 8.5rem;
+    background: url("../img/quiz-decor.png") top center no-repeat;
+    max-width: 37.5rem;
+    margin: 0 auto;
+    &--row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+  }
+
+  &__back {
+    background: url("../img/arrow-left-icon.png") left center / 2.6875rem
+      no-repeat;
+    padding-left: 4.8125rem;
+    font-size: 1.375rem;
+    a {
+      text-decoration: underline;
+      transition: color $transition;
+      @include hover {
+        color: $red-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__btn-back {
+    display: inline-block;
+    background-color: transparent;
+    color: #898989;
+    font-size: 1.125rem;
+    text-decoration: underline;
+    margin-right: 0.625rem;
+    border: none;
+    transition: color $transition;
+    cursor: pointer;
+    &::before {
+      content: "< ";
+    }
+
+    @include hover {
+      color: $red-color;
+      text-decoration: none;
+    }
+  }
+
+  &__policy {
+    color: #898989;
+    font-size: 1.125rem;
+    text-decoration: underline;
+    transition: color $transition;
+
+    @include hover {
+      color: $red-color;
+      text-decoration: none;
+    }
+  }
+
+  &__step-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 5.625rem;
+  }
+
+  &__content {
+    max-width: 26.875rem;
+    margin: 0 auto 5rem;
+    &--full {
+      width: 100%;
+    }
+    &--final {
+      max-width: 38.125rem;
+
+      .quiz__input {
+        max-width: 100%;
+      }
+    }
+  }
+
+  &__input {
+    font-size: 1.375rem;
+    font-style: italic;
+    display: block;
+    padding: 0.625rem;
+    text-align: center;
+    border: none;
+    background-color: #fff;
+    border-bottom: 1px solid $accent-color;
+    width: 100%;
+    max-width: 21.875rem;
+    margin: 0 auto;
+    @include mb(3.75rem);
+  }
+
+  &__step-title {
+    margin-bottom: 3.125rem;
+    font-size: 2.1875rem;
+    font-family: $font-tertiary;
+    text-align: center;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    user-select: none;
+
+    @include mb(2.25rem);
+
+    input {
+      display: none;
+      &:checked {
+        ~ .quiz__checkbox-el::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+  &__checkbox-el {
+    display: block;
+    width: 2rem;
+    height: 2rem;
+    border: 2px solid $accent-color;
+    flex-shrink: 0;
+    margin-right: 2.5rem;
+    position: relative;
+    &::after {
+      position: absolute;
+      content: "";
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 3.75rem;
+      height: 3.75rem;
+      background: url("../img/check-icon.svg") center / cover no-repeat;
+      opacity: 0;
+    }
+  }
+  &__checkbox-text {
+    font-size: 1.375rem;
+    text-decoration: underline;
+  }
+
+  &__terms {
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  &__btn {
+    max-width: 25.9375rem;
+    margin: 0 auto;
+    width: 100%;
+    @include hover {
+      &::after {
+        inset: -4px;
+        border-color: $accent-color;
+      }
+    }
+    &::after {
+      inset: 4px;
+      border: 2px solid #fff;
+    }
+    &:disabled {
+      color: #898989;
+      touch-action: none;
+      appearance: none;
+      user-select: none;
+      pointer-events: none;
+      &::before {
+        display: none;
+      }
+      .btn__text {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &__step {
+    display: none;
+    flex-grow: 1;
+    padding-top: 4.5rem;
+    line-height: 1.2;
+
+    &.is-active {
+      display: block;
+    }
+  }
+
+  &__btn-start {
+    &::before {
+      display: none;
+    }
+  }
+}
+
+.just-validate-error-label {
+  display: none;
 }

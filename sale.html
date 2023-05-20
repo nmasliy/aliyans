@@ -9,71 +9,187 @@
 	<title>Aliyans Gayrimenkul Опрос</title>
 	<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:300,300italic,regular,italic,700,700italic"
 		rel="stylesheet" />
-	<link rel="stylesheet" href="css/vendor.css">
+	<link rel="stylesheet" href="css/vendor.min.css">
 	<link rel="stylesheet" href="css/main.css">
 </head>
 
 <body>
 
-	<section class="quiz">
+	<section class="quiz" style="background-image: url('img/quiz-bg.jpg');">
 		<div class="container">
 			<form class="quiz__inner" action="#">
-				<h1>Quiz</h1>
+				<div class="head">
+					<div class="head__logo">
+						<img src="img/logo.png" alt="">
+						<span>ALIYANS GAYRIMENKUL</span>
+					</div>
+					<div class="head__title">
+						НЕДВИЖИМОСТЬ <span>В ТУРЦИИ</span>
+						<div class="head__keys"><img src="img/keys-icon.png" width="37" alt=""></div>
+						<div class="head__moon"><img src="img/moon-icon.png" width="30" alt=""></div>
+					</div>
+				</div>
 				<div class="quiz__step is-active" data-step="1">
-					Шаг 1
-					Пройти тест
+					<div class="quiz__step-body">
+						<h1 class="quiz__title"><span>ВЫГОДНОЕ</span> ГОРЯЧЕЕ <br>
+							ИНДИВИДУАЛЬНОЕ ПРЕДЛОЖЕНИЕ</h1>
+							<div class="quiz__subtitle">ОТВЕТЬТЕ НА <span>4</span> ПРОСТЫХ ВОПРОСА И МЫ ОТПРАВИМ <br>
+								ПОДБОРКУ ОБЪЕКТОВ, КОТОРЫЕ ПОДХОДЯТ ИМЕННО ВАМ!</div>
+							<button class="quiz__btn-start btn" type="button" data-next="2">
+								<span class="btn__inner"><span class="btn__text">Пройти тест</span></span>
+							</button>
+							<div class="quiz__caption">+ БОНУС <span>РЕАЛЬНАЯ СКИДКА 4%</span> ЗА ЭКОНОМИЮ НАШЕГО ВРЕМЕНИ</div>
+					</div>
 					<div class="quiz__footer">
-						<button class="quiz__btn" type="button" data-next="2">Пройти тест</button>
 						<div class="quiz__back">
-							--- или можно
-							<a href="./" target="_blank">Вернуться назад</a>
+							или можно
+							<a href="./" target="_blank">вернуться на сайт</a>
 						</div>
 					</div>
 				</div>
 				<div class="quiz__step" data-step="2">
-					Шаг 2
-					<button class="quiz__btn" disabled type="button" data-next="3">Продолжить</button>
-					<div class="quiz__footer">
+					<div class="quiz__step-body">
+						<div class="quiz__step-title">Давайте познакомимся. Как вас зовут?</div>
+						<div class="quiz__content quiz__content--full">
+							<input class="quiz__input quiz__input--name" type="text" name="Имя" placeholder="ВАШЕ ИМЯ">
+						</div>
+						<button class="quiz__btn btn" disabled type="button" data-next="3">
+							<span class="btn__inner"><span class="btn__text">Продолжить</span></span>
+						</button>
+					</div>
+					<div class="quiz__footer quiz__footer--row">
 						<button class="quiz__btn-back" data-next="1" type="button">Вернуться назад</button>
-						<a href="#" target="_blank">Политика конфиденциальности</a>
+						<a class="quiz__policy" href="#" target="_blank">Политика конфиденциальности</a>
 					</div>
 				</div>
 				<div class="quiz__step" data-step="3">
-					Шаг 3
-					<button class="quiz__btn" disabled type="button" data-next="4">Продолжить</button>
-					<div class="quiz__footer">
+					<div class="quiz__step-body">
+						<div class="quiz__step-title">Какой у вас предполагаемый бюджет?</div>
+						<div class="quiz__content" id="quiz-checkboxes-budget">
+							<label class="quiz__checkbox">
+								<input class="quiz__checkbox-budget" type="checkbox" name="Бюджет" value="до 15 млн.рублей">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">до 15 млн.рублей</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input class="quiz__checkbox-budget" type="checkbox" name="Бюджет" value="от 15 до 30 млн. рублей">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">от 15 до 30 млн. рублей</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input class="quiz__checkbox-budget" type="checkbox" name="Бюджет" value="от 30 до 50 млн. рублей">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">от 30 до 50 млн. рублей</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input class="quiz__checkbox-budget" type="checkbox" name="Бюджет" value="более 50 млн.рублей">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">более 50 млн.рублей</span>
+							</label>
+						</div>
+						<button class="quiz__btn btn" disabled type="button" data-next="4">
+							<span class="btn__inner"><span class="btn__text">Продолжить</span></span>
+						</button>
+					</div>
+					<div class="quiz__footer quiz__footer--row">
 						<button class="quiz__btn-back" data-next="2" type="button">Вернуться назад</button>
-						<a href="#" target="_blank">Политика конфиденциальности</a>
+						<a class="quiz__policy" href="#" target="_blank">Политика конфиденциальности</a>
 					</div>
 				</div>
 				<div class="quiz__step" data-step="4">
-					Шаг 4
-					<button class="quiz__btn" disabled type="button" data-next="5">Продолжить</button>
-					<div class="quiz__footer">
+					<div class="quiz__step-body">
+						<div class="quiz__step-title">Какой тип недвижимости Вас интересует?</div>
+						<div class="quiz__content">
+							<label class="quiz__checkbox">
+								<input type="checkbox" name="Недвижимость" value="Квартиры или Аппартаменты">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">Квартиры или Аппартаменты</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input type="checkbox" name="Недвижимость" value="Дома, Виллы, Таунхаусы">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">Дома, Виллы, Таунхаусы</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input type="checkbox" name="Недвижимость" value="Коммерческая недвижимость">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">Коммерческая недвижимость</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input type="checkbox" name="Недвижимость" value="Земельные участки">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">Земельные участки</span>
+							</label>
+						</div>
+						<button class="quiz__btn btn" disabled type="button" data-next="5">
+							<span class="btn__inner"><span class="btn__text">Продолжить</span></span>
+						</button>
+					</div>
+					<div class="quiz__footer quiz__footer--row">
 						<button class="quiz__btn-back" data-next="3" type="button">Вернуться назад</button>
-						<a href="#" target="_blank">Политика конфиденциальности</a>
+						<a class="quiz__policy" href="#" target="_blank">Политика конфиденциальности</a>
 					</div>
 				</div>
 				<div class="quiz__step" data-step="5">
-					Шаг 5
-					<button class="quiz__btn" disabled type="button" data-next="6">Продолжить</button>
-					<div class="quiz__footer">
+					<div class="quiz__step-body">
+						<div class="quiz__step-title">Какой срок сдачи Вам подходит?</div>
+						<div class="quiz__content">
+							<label class="quiz__checkbox">
+								<input type="checkbox" name="Срок" value="Объект сдан">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">Объект сдан</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input type="checkbox" name="Срок" value="2023 год">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">2023 год</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input type="checkbox" name="Срок" value="2024 год">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">2024 год</span>
+							</label>
+							<label class="quiz__checkbox">
+								<input type="checkbox" name="Срок" value="2025 год и позднее">
+								<span class="quiz__checkbox-el"></span>
+								<span class="quiz__checkbox-text">2025 год и позднее</span>
+							</label>
+						</div>
+						<button class="quiz__btn btn" disabled type="button" data-next="6">
+							<span class="btn__inner"><span class="btn__text">Продолжить</span></span>
+						</button>
+					</div>
+					<div class="quiz__footer quiz__footer--row">
 						<button class="quiz__btn-back" data-next="4" type="button">Вернуться назад</button>
-						<a href="#" target="_blank">Политика конфиденциальности</a>
+						<a class="quiz__policy" href="#" target="_blank">Политика конфиденциальности</a>
 					</div>
 				</div>
 				<div class="quiz__step" data-step="6">
-					Шаг 6
-					<button class="quiz__btn">Отправить</button>
-					<div class="quiz__footer">
+					<div class="quiz__step-body">
+						<div class="quiz__step-title">Куда отправить индивидуальное предложение?</div>
+						<div class="quiz__content quiz__content--final quiz__content--full">
+							<input class="quiz__input quiz__input--tel" type="tel" name="Телефон" placeholder="укажите НОМЕР ТЕЛЕФОНА (отправим на WhatsApp)">
+							<input class="quiz__input quiz__input--email" type="email" name="Почта" placeholder="или АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ (Email)">
+							<label class="quiz__terms terms-checkbox">
+								<input type="checkbox" name="Условия" value="Да">
+								<span class="terms-checkbox__el"></span>
+								<span class="terms-checkbox__text">Принимаю условия <br>
+									пользовательского соглашения</span>
+							</label>
+						</div>
+						<button class="quiz__btn quiz__btn--submit btn" disabled><span class="btn__inner"><span class="btn__text">Отправить</span></span></button>
+					</div>
+					<div class="quiz__footer quiz__footer--row">
 						<button class="quiz__btn-back" data-next="5" type="button">Вернуться назад</button>
-						<a href="#" target="_blank">Политика конфиденциальности</a>
+						<a class="quiz__policy" href="#" target="_blank">Политика конфиденциальности</a>
 					</div>
 				</div>
 			</form>
 		</div>
 	</section>
 
+	<script src="js/inputmask.min.js"></script>
+	<script src="js/just-validate.production.min.js"></script>
 	<script src="js/main.js"></script>
 
 </body>
