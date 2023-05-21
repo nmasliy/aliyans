@@ -178,6 +178,17 @@
       }
     }
   }
+
+  &__text a {
+    text-decoration: underline;
+    transition: color $transition;
+
+    @include hover {
+      text-decoration: none;
+      color: $red-color;
+    }
+  }
+
   &__el {
     display: block;
     width: 1.25rem;

@@ -5,6 +5,7 @@ window.addEventListener("DOMContentLoaded", function () {
   initGallerySlider();
   initQuiz();
   initModals();
+  initGalleryShowMore();
 
   function initModals() {
     const modals = new SimpleModal();
@@ -18,6 +19,203 @@ window.addEventListener("DOMContentLoaded", function () {
       const inputMask = new Inputmask("+7 (999) 99-99-99");
       inputMask.mask(input);
     });
+
+
+    if (!document.querySelector('.form')) return;
+
+    const rulesWrite = [
+      {
+        ruleSelector: ".form__input--name",
+        rules: [
+          {
+            rule: "required",
+            value: true,
+            errorMessage: "Введите имя!",
+          },
+        ],
+      },
+      {
+        ruleSelector: '.form__input--email',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Заполните Email!'
+          },
+          {
+            rule: 'email',
+            value: true,
+            errorMessage: 'Введите корректный Email!'
+          }
+        ]
+      },
+      {
+        ruleSelector: '.form__terms input',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Подтвердите своё согласие с политикой!'
+          },
+        ]
+      }
+    ]
+
+    const rulesConsult = [
+      {
+        ruleSelector: ".form__input--name",
+        rules: [
+          {
+            rule: "required",
+            value: true,
+            errorMessage: "Введите имя!",
+          },
+        ],
+      },
+      {
+        ruleSelector: '.form__input--tel',
+        tel: true,
+        telError: 'Введите корректный телефон!',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Заполните телефон!'
+          }
+        ]
+      },
+      {
+        ruleSelector: '.form__terms input',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Подтвердите своё согласие с политикой!'
+          },
+        ]
+      }
+    ]
+
+    const rulesOnline = [
+      {
+        ruleSelector: ".form__input--name",
+        rules: [
+          {
+            rule: "required",
+            value: true,
+            errorMessage: "Введите имя!",
+          },
+        ],
+      },
+      {
+        ruleSelector: '.form__input--tel',
+        tel: true,
+        telError: 'Введите корректный телефон!',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Заполните телефон!'
+          }
+        ]
+      },
+      {
+        ruleSelector: '.form__terms input',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Подтвердите своё согласие с политикой!'
+          },
+        ]
+      }
+    ]
+
+    const rulesTransfer = [
+      {
+        ruleSelector: ".form__input--name",
+        rules: [
+          {
+            rule: "required",
+            value: true,
+            errorMessage: "Введите имя!",
+          },
+        ],
+      },
+      {
+        ruleSelector: '.form__input--tel',
+        tel: true,
+        telError: 'Введите корректный телефон!',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Заполните телефон!'
+          }
+        ]
+      },
+      {
+        ruleSelector: '.form__terms input',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Подтвердите своё согласие с политикой!'
+          },
+        ]
+      }
+    ]
+
+    const rulesApartments = [
+      {
+        ruleSelector: ".form__input--name",
+        rules: [
+          {
+            rule: "required",
+            value: true,
+            errorMessage: "Введите имя!",
+          },
+        ],
+      },
+      {
+        ruleSelector: '.form__input--tel',
+        tel: true,
+        telError: 'Введите корректный телефон!',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Заполните телефон!'
+          }
+        ]
+      },
+      {
+        ruleSelector: '.form__terms input',
+        rules: [
+          {
+            rule: 'required',
+            value: true,
+            errorMessage: 'Подтвердите своё согласие с политикой!'
+          },
+        ]
+      }
+    ]
+
+    validateForms('#modal-write form', rulesWrite);
+    validateForms('#modal-consult form', rulesConsult);
+    validateForms('#modal-online form', rulesOnline);
+    validateForms('#modal-transfer form', rulesTransfer);
+    validateForms('#modal-apartments-1 form', rulesApartments);
+  }
+
+  function initGalleryShowMore() {
+    const buttons = document.querySelectorAll('.form__more');
+
+    buttons?.forEach((el) => {
+      el.addEventListener('click', function() {
+        el.closest('.form').querySelector('.form__gallery').classList.add('is-active');
+      })
+    })
   }
 
   function initObjectsCounter() {
@@ -117,22 +315,22 @@ window.addEventListener("DOMContentLoaded", function () {
       },
     ];
 
-    validateForms(
+    validateSteps(
       ".quiz__inner",
       rules2,
-      {},
       '.quiz__step[data-step="2"]',
       false
     );
-    validateForms(".quiz__inner", [], {}, '.quiz__step[data-step="3"]', true);
-    validateForms(".quiz__inner", [], {}, '.quiz__step[data-step="4"]', true);
-    validateForms(".quiz__inner", [], {}, '.quiz__step[data-step="5"]', true);
+    validateSteps(".quiz__inner", [], '.quiz__step[data-step="3"]', true);
+    validateSteps(".quiz__inner", [],  '.quiz__step[data-step="4"]', true);
+    validateSteps(".quiz__inner", [],  '.quiz__step[data-step="5"]', true);
 
     validateLastStep();
 
     function validateLastStep() {
-      const form = document?.querySelector(".quiz__inner");
+      const form = document.querySelector(".quiz__inner");
 
+      const quizError = document.querySelector(".quiz__error");
       const quizPhone = document.querySelector(".quiz__input--tel");
       const quizSubmit = document.querySelector(".quiz__btn--submit");
       const quizEmail = document.querySelector(".quiz__input--email");
@@ -150,10 +348,12 @@ window.addEventListener("DOMContentLoaded", function () {
 
           if ((phoneValid || emailValid) && quizTerms.checked) {
             isValid = true;
+            quizError.style.display = '';
             quizSubmit.disabled = false;
           } else {
             isValid = false;
             quizSubmit.disabled = true;
+            quizError.style.display = 'block';
           }
         });
       });
@@ -168,6 +368,7 @@ window.addEventListener("DOMContentLoaded", function () {
         xhr.onreadystatechange = function () {
           if (xhr.readyState === 4) {
             if (xhr.status === 200) {
+              window.location.href = './';
               if (afterSend) {
                 afterSend();
               }
@@ -193,10 +394,9 @@ window.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function validateForms(
+  function validateSteps(
     selector,
     rules,
-    afterSend,
     stepNode = selector,
     checkboxes
   ) {
@@ -254,6 +454,55 @@ window.addEventListener("DOMContentLoaded", function () {
       }
     });
 
+  }
+
+  function validateForms(selector, rules, afterSend) {
+    const form = document?.querySelector(selector);
+    const btn = form?.querySelector('button[type="submit"]');
+    const telSelector = form?.querySelector('input[type="tel"]');
+
+    if (!form) {
+      console.error("Нет такого селектора!");
+      return false;
+    }
+
+    if (telSelector) {
+      for (let item of rules) {
+        if (item.tel) {
+          item.rules.push({
+            rule: "function",
+            validator: function () {
+              const phone = telSelector.inputmask.unmaskedvalue();
+              return phone.length === 9;
+            },
+            errorMessage: item.telError,
+          });
+        }
+      }
+    }
+
+    const validation = new window.JustValidate(selector, {
+      validateBeforeSubmitting: true,
+      errorsContainer: '.form__errors',
+      errorLabelStyle: {
+        color: "#c30303",
+      },
+    });
+
+    for (let item of rules) {
+      validation.addField(item.ruleSelector, item.rules);
+    }
+
+    validation.onValidate((ev) => {
+      if (!btn) return;
+
+      if (ev.isValid) {
+        btn.disabled = false;
+      } else {
+        btn.disabled = true;
+      }
+    });
+
     validation.onSuccess((ev) => {
       let formData = new FormData(ev.target);
 
@@ -262,6 +511,7 @@ window.addEventListener("DOMContentLoaded", function () {
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
+            window.location.href = './';
             if (afterSend) {
               afterSend();
             }

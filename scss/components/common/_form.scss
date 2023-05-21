@@ -1,0 +1,256 @@
+.form {
+  &__title {
+    font-size: 1.5625rem;
+    position: relative;
+    padding-bottom: 17px;
+    line-height: 1.2;
+    margin-bottom: 3.125rem;
+    &::before {
+      position: absolute;
+      content: "";
+      left: 0;
+      bottom: 0;
+      background-color: $accent-color;
+      height: 5px;
+      width: 12.1875rem;
+      max-width: 100%;
+    }
+  }
+
+  &__terms--offset {
+    margin-bottom: 2.1875rem;
+  }
+
+  &__btn {
+    text-align: left;
+    width: 100%;
+    .btn__inner {
+      justify-content: flex-start;
+      padding-left: 5rem;
+    }
+    &::after {
+      inset: 4px;
+      border: 2px solid #fff;
+    }
+    &::before {
+      background-image: url("../img/arrow-3-icon.png");
+      left: 5px;
+      width: 2.4375rem;
+      height: 1rem;
+    }
+    @include hover {
+      &::after {
+        inset: -4px;
+        border-color: $accent-color;
+      }
+    }
+    &:disabled {
+      color: #898989;
+      touch-action: none;
+      appearance: none;
+      user-select: none;
+      pointer-events: none;
+      &::before {
+        display: none;
+      }
+      .btn__text {
+        border-color: transparent;
+      }
+    }
+  }
+
+  &__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3.75rem;
+
+    &--center {
+      align-items: center;
+    }
+
+    &--offset {
+      margin-bottom: 3.75rem;
+    }
+  }
+
+  &__img {
+    border: 3px solid $accent-color;
+    border-radius: 3px;
+    height: 100%;
+    img {
+      display: flex;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__img-wrapper {
+    position: relative;
+    padding-right: 4rem;
+  }
+
+  &__img-info {
+    transform: rotate(-180deg);
+    position: absolute;
+    right: -1rem;
+    bottom: 5rem;
+    z-index: 3;
+    writing-mode: vertical-rl;
+  }
+
+  &__info-name {
+    font-size: 1.375rem;
+    margin-bottom: 0.5rem;
+  }
+
+  &__info-position {
+    font-size: 1rem;
+  }
+
+  &__subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 2.1875rem;
+  }
+
+  &__input {
+    font-size: 1.125rem;
+    display: block;
+    padding: 0.3125rem 0;
+    border: none;
+    background-color: #fff;
+    border-bottom: 1px solid $accent-color;
+    width: 100%;
+    @include mb(1.5625rem);
+  }
+
+  &__textarea {
+    font-size: 1.125rem;
+    min-height: 12.5rem;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    border: 1px solid $accent-color;
+    resize: none;
+    padding: 0.75rem 1.25rem;
+  }
+
+  &__errors {
+    margin: 10px 0;
+  }
+
+  &__more {
+    font-size: 1.25rem;
+    text-transform: uppercase;
+    text-decoration: underline;
+    transition: color $transition;
+    padding-left: 4.375rem;
+    background: url("../img/chevron-bottom-icon.png") left 1rem center / 1.75rem
+      no-repeat;
+    user-select: none;
+    cursor: pointer;
+    @include hover {
+      color: $red-color;
+      text-decoration: none;
+    }
+  }
+
+  &__gallery {
+    display: grid;
+    gap: 15px;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 3.125rem;
+    a {
+      display: flex;
+    }
+    &.is-active {
+      ~ .form__more {
+        display: none;
+      }
+      .form__gallery-img:nth-child(5) ~ .form__gallery-img {
+        display: block;
+      }
+    }
+    &-img {
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      &:nth-child(5) ~ .form__gallery-img {
+        display: none;
+      }
+      &:first-child {
+        img {
+          height: 29.6875rem;
+        }
+        grid-column: span 2;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    &__more {
+      font-size: 1rem;
+    }
+    &__gallery {
+      &.is-active {
+        .form__gallery-img:nth-child(6) ~ .form__gallery-img {
+          display: block;
+        }
+      }
+      &-img {
+        &:nth-child(6) ~ .form__gallery-img {
+          display: none;
+        }
+        &:first-child {
+          img {
+            height: 100%;
+          }
+          grid-column: span;
+        }
+      }
+    }
+    &__img-info {
+      position: static;
+      transform: none;
+      writing-mode: inherit;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    &__img-wrapper {
+      padding-right: 0;
+    }
+    &__img {
+      max-width: 18.75rem;
+      margin: 0 auto 1rem;
+
+      img {
+        object-position: top;
+        height: 15.625rem;
+      }
+    }
+    &__row {
+      display: block;
+      &--offset {
+        margin-bottom: 2rem;
+      }
+      &--center {
+        display: flex;
+        gap: 0;
+        flex-direction: column;
+        align-items: center;
+      }
+    }
+    &__col {
+      @include mb(1.875rem);
+    }
+    &__terms {
+      margin-bottom: 1.25rem;
+    }
+    &__btn {
+      margin: 0 auto;
+      max-width: 260px;
+    }
+  }
+}

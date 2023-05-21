@@ -38,7 +38,7 @@
 									style="background-image: url('img/whatsapp-icon.png');"><span>WhatsApp</span></a>
 							</li>
 							<li>
-								<a href="#" class="consult-btn"><span>Бесплатная консультация</span></a>
+								<a href="#" data-modal-open="modal-consult" class="consult-btn"><span>Бесплатная консультация</span></a>
 							</li>
 						</ul>
 					</div>
@@ -55,7 +55,7 @@
 							<div class="header__subtitle">лицензированное агенство</div>
 						</div>
 						<div class="header__col">
-							<a href="#" class="header__banner banner">
+							<a href="sale.html" target="_blank" class="header__banner banner">
 								<div class="banner__title">
 									<span class="banner__title-first">ПОЛУЧИТЬ</span>
 									<span class="banner__title-second">ВЫГОДНОЕ</span>
@@ -97,17 +97,17 @@
 		<section class="apartments" id="apartments">
 			<ul class="apartments__list">
 				<li class="apartments__item" style="background-image: url('img/apartments-1.jpg');">
-					<a href="#" class="apartments__link">
+					<a href="#" class="apartments__link" data-modal-open="modal-apartments-1">
 						<div class="apartments__name">Роскошная квартира в Мерсине 97 кв.м. ~ <span>подробнее</span></div>
 					</a>
 				</li>
 				<li class="apartments__item" style="background-image: url('img/apartments-2.jpg');">
-					<a href="#" class="apartments__link">
+					<a href="#" class="apartments__link" data-modal-open="modal-apartments-2">
 						<div class="apartments__name">Комфортная вилла в Адане 225 кв.м. <span>подробнее</span></div>
 					</a>
 				</li>
 				<li class="apartments__item" style="background-image: url('img/apartments-3.jpg');">
-					<a href="#" class="apartments__link">
+					<a href="#" class="apartments__link" data-modal-open="modal-apartments-3">
 						<div class="apartments__name">Недорогие аппартаменты 68 кв.м. ~ <span>подробнее</span></div>
 					</a>
 				</li>
@@ -201,7 +201,7 @@
 				<div class="team__inner">
 					<div class="team__head">
 						<h3 class="team__title">ОФОРМИТЕ ЗАЯВКУ И НАЧНИТЕ ПОИСК НЕДВИЖИМОСТИ ВАМ&nbsp;ПЕРЕЗВОНИТ НАШ специалист</h3>
-						<a href="#" class="team__btn">
+						<a href="#" class="team__btn" data-modal-open="modal-consult">
 							ПОЛУЧИТЬ
 							БЕСПЛАТНУЮ
 							КОНСУЛЬТАЦИЮ</a>
@@ -288,9 +288,8 @@
 								уже нашли своих владельцев</div>
 							<div class="help__objects-week">+<span>4</span> на этой неделе</div>
 						</div>
-						<a href="mailto:alyansturkey@gmail.com" class="help__btn"><span class="help__btn-wrapper"><span
-									class="help__btn-inner">Напишите
-									нам</span></span></a>
+						<a href="#" data-modal-open="modal-write" class="help__btn"><span class="help__btn-wrapper"><span
+									class="help__btn-inner">Напишите нам</span></span></a>
 					</div>
 				</div>
 			</div>
@@ -349,7 +348,7 @@
 						<div class="citizenship__img">
 							<img src="img/passport.png" width="286" height="428" alt="">
 						</div>
-						<a href="#" class="citizenship__btn">
+						<a href="#" class="citizenship__btn" data-modal-open="modal-consult">
 							<span class="citizenship__btn-wrapper"><span>УЗНАТЬ</span> <span>ПОДРОБНОСТИ</span></span>
 						</a>
 						<div class="citizenship__consult">бесплатная
@@ -504,7 +503,7 @@
 					</div>
 				</div>
 				<div class="transfer__footer">
-					<a href="#" class="transfer__btn btn btn-small">
+					<a href="#" class="transfer__btn btn btn-small" data-modal-open="modal-transfer">
 						<span class="btn__inner btn-small__inner"><span class="btn__text">заказать трансфЕР</span></span></a>
 					<div class="transfer__footer-text">Ознакомительный тур - это бесплатная услуга при условии покупки
 						недвижимости
@@ -537,7 +536,7 @@
 								ближайшей пекарни, ресторана, школы и тд.
 							</li>
 						</ul>
-						<a href="#" class="online__btn btn btn-small">
+						<a href="#" class="online__btn btn btn-small" data-modal-open="modal-online">
 							<span class="btn__inner btn-small__inner"><span class="btn__text">
 									ОСТАВИТЬ ЗАЯВКУ <br>
 									НА ОНЛАЙН-ПРОСМОТР</span></span></a>
@@ -649,7 +648,7 @@
 							недвижимости, приобретение земельного участка
 						</div>
 						<div class="free__btn-wrapper">
-							<a href="#" class="free__btn btn btn-small">
+							<a href="#" class="free__btn btn btn-small" data-modal-open="modal-consult">
 								<span class="btn__inner btn-small__inner"><span class="btn__text">
 										ИНВЕСТИРОВАТЬ <br>
 										В НЕДВИЖИМОСТЬ</span></span></a>
@@ -683,10 +682,10 @@
 							<li><a href="#" class="info-box__whatsapp footer__whatsapp"
 									style="background-image: url('img/whatsapp-icon.png');"><span>WhatsApp</span></a></li>
 						</ul>
-						<a href="#" class="consult-btn"><span>Бесплатная консультация</span></a>
+						<a href="#" data-modal-open="modal-consult" class="consult-btn"><span>Бесплатная консультация</span></a>
 					</div>
 					<div class="footer__col">
-						<a href="#" class="footer__banner banner">
+						<a href="sale.html" target="_blank" class="footer__banner banner">
 							<div class="banner__title">
 								<span class="banner__title-first">ПОЛУЧИТЬ</span>
 								<span class="banner__title-second">ВЫГОДНОЕ</span>
@@ -741,23 +740,273 @@
 		</footer>
 	</div>
 
-	<div class="modal modal-write" id="modal-write" aria-hidden="true">
+	<div class="modal" id="modal-write" aria-hidden="true">
 		<div class="modal__wrapper">
 			<div class="modal__inner">
 				<div class="modal__content">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum corrupti, officia omnis vitae quae quidem nostrum
-					aliquid voluptas consectetur laudantium, qui excepturi recusandae dolorem doloribus aperiam ratione eius numquam
-					debitis.
+					<form action="#" class="modal__form form">
+						<div class="form__title">НАПИШИТЕ НАМ</div>
+						<div class="form__row form__row--offset">
+							<div class="form__col">
+								<div class="form__subtitle">Постараемся ответить на все Ваши вопросы максимально быстро!</div>
+								<input type="text" class="form__input form__input--name" name="Имя" placeholder="Имя">
+								<input type="text" class="form__input form__input--email" name="Почта" placeholder="E-mail (ваш адрес почты)">
+							</div>
+							<div class="form__col">
+								<textarea class="form__textarea form__textarea--message" name="Сообщение" placeholder="Ваше сообщение..."></textarea>
+							</div>
+						</div>
+						<div class="form__row form__row--center">
+							<div class="form__col">
+								<label class="form__terms terms-checkbox">
+									<input type="checkbox" name="Условия" value="Да">
+									<span class="terms-checkbox__el"></span>
+									<span class="terms-checkbox__text">Принимаю условия <br>
+										<a href="#" target="_blank">пользовательского соглашения</a></span>
+								</label>
+							</div>
+							<button class="form__btn btn" type="submit" disabled>
+								<span class="btn__inner"><span class="btn__text">
+								Отправить <br> сообщение</span></span></button>
+						</div>
+						<div class="form__errors"></div>
+						<input type="hidden" name="Форма" value="Напишите нам">
+					</form>
 				</div>
-				<button class="modal__close" data-modal-close>
-					<img src="img/close-icon.png" width="36" height="38" alt="Close icon">
-				</button>
+				<button class="modal__close" data-modal-close></button>
 			</div>
 		</div>
 	</div>
 	
+	<div class="modal modal-drop" id="modal-consult" aria-hidden="true">
+		<div class="modal__wrapper">
+			<div class="modal__inner">
+				<div class="modal__content">
+					<form action="#" class="modal__form form">
+						<div class="form__row">
+							<div class="form__col">
+								<div class="form__title">Получите бесплатную консультацию от эксперта</div>
+								<div class="form__subtitle">Задайте вопрос по выбору и покупке недвижимости в Турции</div>
+								<input type="text" class="form__input form__input--name" name="Имя" placeholder="Имя">
+								<input type="tel" class="form__input form__input--tel" name="Телефон" placeholder="Номер телефона">
+								<label class="form__terms form__terms--offset terms-checkbox">
+									<input type="checkbox" name="Условия" value="Да">
+									<span class="terms-checkbox__el"></span>
+									<span class="terms-checkbox__text">Принимаю условия <br>
+										<a href="#" target="_blank">пользовательского соглашения</a></span>
+								</label>
+								<div class="form__errors"></div>
+								<button class="form__btn btn" type="submit" disabled>
+									<span class="btn__inner"><span class="btn__text">
+									Получить <br> консультацию</span></span></button>
+							</div>
+							<div class="form__col form__img-wrapper">
+								<div class="form__img">
+									<img src="img/team-2.jpg" width="350" height="620" alt="Darya Nikitina">
+								</div>
+								<div class="form__img-info">
+									<div class="form__info-name">Darya Nikitina</div>
+									<div class="form__info-position">Консультант по продажам</div>
+								</div>
+							</div>
+						</div>
+						<input type="hidden" name="Форма" value="Напишите нам">
+					</form>
+				</div>
+				<button class="modal__close" data-modal-close></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal modal-drop" id="modal-online" aria-hidden="true">
+		<div class="modal__wrapper">
+			<div class="modal__inner">
+				<div class="modal__content">
+					<form action="#" class="modal__form form">
+						<div class="form__row">
+							<div class="form__col">
+								<div class="form__title">Заказать Онлайн-Просмотр</div>
+								<div class="form__subtitle">Организуем бесплатный <br> ознакомительный тур по интересующим Вас объектам</div>
+								<input type="text" class="form__input form__input--name" name="Имя" placeholder="Имя">
+								<input type="tel" class="form__input form__input--tel" name="Телефон" placeholder="Номер телефона">
+								<label class="form__terms form__terms--offset terms-checkbox">
+									<input type="checkbox" name="Условия" value="Да">
+									<span class="terms-checkbox__el"></span>
+									<span class="terms-checkbox__text">Принимаю условия <br>
+										<a href="#" target="_blank">пользовательского соглашения</a></span>
+								</label>
+								<div class="form__errors"></div>
+								<button class="form__btn btn" type="submit" disabled>
+									<span class="btn__inner"><span class="btn__text">
+									Заказать <br> онлайн-тур</span></span></button>
+							</div>
+							<div class="form__col form__img-wrapper">
+								<div class="form__img">
+									<img src="img/team-1.jpg" width="350" height="620" alt="Aliya Zafarova">
+								</div>
+								<div class="form__img-info">
+									<div class="form__info-name">Aliya Zafarova</div>
+									<div class="form__info-position">Директор отдела продаж</div>
+								</div>
+							</div>
+						</div>
+						<input type="hidden" name="Форма" value="Онлайн-просмотр">
+					</form>
+				</div>
+				<button class="modal__close" data-modal-close></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal modal-drop" id="modal-transfer" aria-hidden="true">
+		<div class="modal__wrapper">
+			<div class="modal__inner">
+				<div class="modal__content">
+					<form action="#" class="modal__form form">
+						<div class="form__row">
+							<div class="form__col">
+								<div class="form__title">Заказать Трансфер</div>
+								<div class="form__subtitle">Расскажем все про смотровые туры и обговорим все условия и этапы Трансфера до объектов недвижимости</div>
+								<input type="text" class="form__input form__input--name" name="Имя" placeholder="Имя">
+								<input type="tel" class="form__input form__input--tel" name="Телефон" placeholder="Номер телефона">
+								<label class="form__terms form__terms--offset terms-checkbox">
+									<input type="checkbox" name="Условия" value="Да">
+									<span class="terms-checkbox__el"></span>
+									<span class="terms-checkbox__text">Принимаю условия <br>
+										<a href="#" target="_blank">пользовательского соглашения</a></span>
+								</label>
+								<div class="form__errors"></div>
+								<button class="form__btn btn" type="submit" disabled>
+									<span class="btn__inner"><span class="btn__text">
+									Консультация <br> по трансферу</span></span></button>
+							</div>
+							<div class="form__col form__img-wrapper">
+								<div class="form__img">
+									<img src="img/team-1.jpg" width="350" height="620" alt="Aliya Zafarova">
+								</div>
+								<div class="form__img-info">
+									<div class="form__info-name">Aliya Zafarova</div>
+									<div class="form__info-position">Директор отдела продаж</div>
+								</div>
+							</div>
+						</div>
+						<input type="hidden" name="Форма" value="Трансфер">
+					</form>
+				</div>
+				<button class="modal__close" data-modal-close></button>
+			</div>
+		</div>
+	</div>
+
+	<div class="modal modal-apartments" id="modal-apartments-1" aria-hidden="true">
+		<div class="modal__wrapper">
+			<div class="modal__inner">
+				<div class="modal__content">
+					<form action="#" class="modal__form form">
+						<div class="modal-apartments__title">Роскошная квартира в Мерсине / 97 кв.м. / Мебелированная</div>
+						<div class="form__row">
+							<div class="form__col">
+								<div class="modal-apartments__info">
+									<p>Этаж 3/11</p>
+									<p>Квартира включает в себя:</p>
+									<ul>
+										<li>- Спальная комната -3</li>
+										<li>- Кухня </li>
+										<li>- Гостиная комната</li>
+										<li>- Открытый балкон</li>
+										<li>- Ванная комната - 2</li>
+										<li>- Вид на море</li>
+									</ul>
+									<p>Инфраструктура комплекса:</p>
+									<ul>
+										<li>- Собственная территория</li>
+										<li>- Детская площадка</li>
+										<li>- Парковка</li>
+										<li>- Бассейн </li>
+										<li>- Беседка</li>
+										<li>- Генератор</li>
+									</ul>
+									<p>Цена:  2 800 000 TL</p>
+								</div>
+								<input type="text" class="form__input form__input--name" name="Имя" placeholder="Имя">
+								<input type="tel" class="form__input form__input--tel" name="Телефон" placeholder="Номер телефона">
+								<label class="form__terms form__terms--offset terms-checkbox">
+									<input type="checkbox" name="Условия" value="Да">
+									<span class="terms-checkbox__el"></span>
+									<span class="terms-checkbox__text">Принимаю условия <br>
+										<a href="#" target="_blank">пользовательского соглашения</a></span>
+								</label>
+								<div class="form__errors"></div>
+								<button class="form__btn btn" type="submit" disabled>
+									<span class="btn__inner"><span class="btn__text">
+									Получить <br>Консультацию <br> по этому объекту</span></span></button>
+							</div>
+							<div class="form__col">
+								<ul class="form__gallery">
+									<li class="form__gallery-img">
+										<a href="img/apartments-1.jpg" data-fslightbox>
+											<img src="img/apartments-1.jpg" width="480" height="330" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-1.jpg" data-fslightbox>
+											<img src="img/gallery-1.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-2.jpg" data-fslightbox>
+											<img src="img/gallery-2.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-3.jpg" data-fslightbox>
+											<img src="img/gallery-3.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-4.jpg" data-fslightbox>
+											<img src="img/gallery-4.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-5.jpg" data-fslightbox>
+											<img src="img/gallery-5.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-6.jpg" data-fslightbox>
+											<img src="img/gallery-6.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-7.jpg" data-fslightbox>
+											<img src="img/gallery-7.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-8.jpg" data-fslightbox>
+											<img src="img/gallery-8.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+									<li class="form__gallery-img">
+										<a href="img/gallery-9.jpg" data-fslightbox>
+											<img src="img/gallery-9.jpg" width="250" height="180" alt="фото апартаментов">
+										</a>
+									</li>
+								</ul>
+								<div class="form__more" role="button" tabindex="0">Показать все фотографии</div>
+							</div>
+						</div>
+						<input type="hidden" name="Форма" value="Квартира в Мерсине">
+					</form>
+				</div>
+				<button class="modal__close" data-modal-close></button>
+			</div>
+		</div>
+	</div>
 	
-	<script src="js/SimpleModal.js"></script>
+	<script src="js/fslightbox.js"></script>
+	<script src="js/SimpleModal.min.js"></script>
 	<script src="js/inputmask.min.js"></script>
 	<script src="js/swiper-bundle.min.js"></script>
 	<script src="js/just-validate.production.min.js"></script>

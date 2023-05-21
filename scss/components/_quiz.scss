@@ -294,10 +294,16 @@
       border: 2px solid #fff;
     }
   }
-}
 
-.just-validate-error-label {
-  display: none;
+  &__error {
+    display: none;
+    color: #c30303;
+    margin-top: 20px;
+  }
+
+  .just-validate-error-label {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 1024px) {
