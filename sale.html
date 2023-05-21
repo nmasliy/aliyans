@@ -48,6 +48,7 @@
 					</div>
 				</div>
 				<div class="quiz__step" data-step="2">
+					<div class="quiz__num">1</div>
 					<div class="quiz__step-body">
 						<div class="quiz__step-title">Давайте познакомимся. Как вас зовут?</div>
 						<div class="quiz__content quiz__content--full">
@@ -63,26 +64,27 @@
 					</div>
 				</div>
 				<div class="quiz__step" data-step="3">
+					<div class="quiz__num">2</div>
 					<div class="quiz__step-body">
 						<div class="quiz__step-title">Какой у вас предполагаемый бюджет?</div>
 						<div class="quiz__content" id="quiz-checkboxes-budget">
 							<label class="quiz__checkbox">
-								<input class="quiz__checkbox-budget" type="checkbox" name="Бюджет" value="до 15 млн.рублей">
+								<input type="checkbox" name="Бюджет" value="до 15 млн.рублей">
 								<span class="quiz__checkbox-el"></span>
 								<span class="quiz__checkbox-text">до 15 млн.рублей</span>
 							</label>
 							<label class="quiz__checkbox">
-								<input class="quiz__checkbox-budget" type="checkbox" name="Бюджет" value="от 15 до 30 млн. рублей">
+								<input type="checkbox" name="Бюджет" value="от 15 до 30 млн. рублей">
 								<span class="quiz__checkbox-el"></span>
 								<span class="quiz__checkbox-text">от 15 до 30 млн. рублей</span>
 							</label>
 							<label class="quiz__checkbox">
-								<input class="quiz__checkbox-budget" type="checkbox" name="Бюджет" value="от 30 до 50 млн. рублей">
+								<input type="checkbox" name="Бюджет" value="от 30 до 50 млн. рублей">
 								<span class="quiz__checkbox-el"></span>
 								<span class="quiz__checkbox-text">от 30 до 50 млн. рублей</span>
 							</label>
 							<label class="quiz__checkbox">
-								<input class="quiz__checkbox-budget" type="checkbox" name="Бюджет" value="более 50 млн.рублей">
+								<input type="checkbox" name="Бюджет" value="более 50 млн.рублей">
 								<span class="quiz__checkbox-el"></span>
 								<span class="quiz__checkbox-text">более 50 млн.рублей</span>
 							</label>
@@ -97,6 +99,7 @@
 					</div>
 				</div>
 				<div class="quiz__step" data-step="4">
+					<div class="quiz__num">3</div>
 					<div class="quiz__step-body">
 						<div class="quiz__step-title">Какой тип недвижимости Вас интересует?</div>
 						<div class="quiz__content">
@@ -131,6 +134,7 @@
 					</div>
 				</div>
 				<div class="quiz__step" data-step="5">
+					<div class="quiz__num">4</div>
 					<div class="quiz__step-body">
 						<div class="quiz__step-title">Какой срок сдачи Вам подходит?</div>
 						<div class="quiz__content">
@@ -170,6 +174,7 @@
 						<div class="quiz__content quiz__content--final quiz__content--full">
 							<input class="quiz__input quiz__input--tel" type="tel" name="Телефон" placeholder="укажите НОМЕР ТЕЛЕФОНА (отправим на WhatsApp)">
 							<input class="quiz__input quiz__input--email" type="email" name="Почта" placeholder="или АДРЕС ЭЛЕКТРОННОЙ ПОЧТЫ (Email)">
+							<input type="hidden" name="Форма" value="Квиз">
 							<label class="quiz__terms terms-checkbox">
 								<input type="checkbox" name="Условия" value="Да">
 								<span class="terms-checkbox__el"></span>
@@ -188,6 +193,7 @@
 		</div>
 	</section>
 
+	<script src="js/SimpleModal.js"></script>
 	<script src="js/inputmask.min.js"></script>
 	<script src="js/just-validate.production.min.js"></script>
 	<script src="js/main.js"></script>
