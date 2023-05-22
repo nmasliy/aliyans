@@ -54,7 +54,7 @@ html {
 *,
 *::before,
 *::after {
-  outline-color: transparent;
+  outline: none;
   box-sizing: inherit;
   scrollbar-width: thin;
 }
