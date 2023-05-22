@@ -54,8 +54,9 @@ html {
 *,
 *::before,
 *::after {
-  outline-color: rgba(221, 189, 169, 0.5);
+  outline-color: transparent;
   box-sizing: inherit;
+  scrollbar-width: thin;
 }
 
 body {
@@ -405,24 +406,6 @@ button {
     inset: -4px;
     border-color: #ddbda9;
   }
-}
-.form__btn:disabled {
-  color: #898989;
-  touch-action: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  pointer-events: none;
-}
-.form__btn:disabled::before {
-  display: none;
-}
-.form__btn:disabled .btn__text {
-  border-color: transparent;
 }
 .form__row {
   display: grid;
@@ -3056,16 +3039,28 @@ button {
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  min-height: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  overflow: hidden;
 }
 .quiz .container {
   flex-grow: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
+}
+.quiz__wrapper {
+  max-width: 73.75rem;
+  flex-grow: 1;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow-x: auto;
+  margin: 0 auto;
+  width: 100%;
+  transform: translateX(-3rem);
 }
 .quiz__subtitle {
   margin-bottom: 3.125rem;
@@ -3113,9 +3108,7 @@ button {
 .quiz__inner {
   flex-grow: 1;
   max-width: 67.5rem;
-  width: 100%;
-  height: 100%;
-  margin: 0 auto;
+  margin-left: 6rem;
   padding: 3.75rem;
   background-color: #fff;
 }
@@ -3347,8 +3340,14 @@ button {
 }
 
 @media screen and (max-width: 1024px) {
+  .quiz__wrapper {
+    transform: translateX(0);
+    overflow: visible;
+  }
   .quiz__inner {
     padding: 2rem;
+    margin: 0 auto;
+    overflow: auto;
   }
   .quiz__title {
     font-size: 3rem;

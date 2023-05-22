@@ -9,8 +9,9 @@ html {
 *,
 *::before,
 *::after {
-  outline-color: rgba($accent-color, .5);
+  outline-color: transparent;
   box-sizing: inherit;
+  scrollbar-width: thin;
 }
 
 body {

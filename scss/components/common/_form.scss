@@ -44,19 +44,19 @@
         border-color: $accent-color;
       }
     }
-    &:disabled {
-      color: #898989;
-      touch-action: none;
-      appearance: none;
-      user-select: none;
-      pointer-events: none;
-      &::before {
-        display: none;
-      }
-      .btn__text {
-        border-color: transparent;
-      }
-    }
+    // &:disabled {
+    //   color: #898989;
+    //   touch-action: none;
+    //   appearance: none;
+    //   user-select: none;
+    //   pointer-events: none;
+    //   &::before {
+    //     display: none;
+    //   }
+    //   .btn__text {
+    //     border-color: transparent;
+    //   }
+    // }
   }
 
   &__row {

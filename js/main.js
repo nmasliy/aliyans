@@ -13,13 +13,6 @@ window.addEventListener("DOMContentLoaded", function () {
   }
 
   function initForms() {
-    const phoneInputs = document.querySelectorAll('input[type="tel"]');
-
-    phoneInputs.forEach((input) => {
-      const inputMask = new Inputmask("+7 (999) 99-99-99");
-      inputMask.mask(input);
-    });
-
 
     if (!document.querySelector('.form')) return;
 
@@ -74,14 +67,19 @@ window.addEventListener("DOMContentLoaded", function () {
       },
       {
         ruleSelector: '.form__input--tel',
-        tel: true,
-        telError: 'Введите корректный телефон!',
         rules: [
+          {
+            rule: 'function',
+            validator: function (value) {
+              return /^[0-9-+()]*$/.test(value) && value.length > 5
+            },
+            errorMessage: 'Введите корректный номер телефона!',
+          },
           {
             rule: 'required',
             value: true,
             errorMessage: 'Заполните телефон!'
-          }
+          },
         ]
       },
       {
@@ -109,14 +107,19 @@ window.addEventListener("DOMContentLoaded", function () {
       },
       {
         ruleSelector: '.form__input--tel',
-        tel: true,
-        telError: 'Введите корректный телефон!',
         rules: [
           {
             rule: 'required',
             value: true,
             errorMessage: 'Заполните телефон!'
-          }
+          },
+          {
+            rule: 'function',
+            validator: function (value) {
+              return /^[0-9-+()]*$/.test(value) && value.length > 5
+            },
+            errorMessage: 'Введите корректный номер телефона!',
+          },
         ]
       },
       {
@@ -144,14 +147,19 @@ window.addEventListener("DOMContentLoaded", function () {
       },
       {
         ruleSelector: '.form__input--tel',
-        tel: true,
-        telError: 'Введите корректный телефон!',
         rules: [
           {
             rule: 'required',
             value: true,
             errorMessage: 'Заполните телефон!'
-          }
+          },
+          {
+            rule: 'function',
+            validator: function (value) {
+              return /^[0-9-+()]*$/.test(value) && value.length > 5
+            },
+            errorMessage: 'Введите корректный номер телефона!',
+          },
         ]
       },
       {
@@ -179,14 +187,19 @@ window.addEventListener("DOMContentLoaded", function () {
       },
       {
         ruleSelector: '.form__input--tel',
-        tel: true,
-        telError: 'Введите корректный телефон!',
         rules: [
           {
             rule: 'required',
             value: true,
             errorMessage: 'Заполните телефон!'
-          }
+          },
+          {
+            rule: 'function',
+            validator: function (value) {
+              return /^[0-9-+()]*$/.test(value) && value.length > 5
+            },
+            errorMessage: 'Введите корректный номер телефона!',
+          },
         ]
       },
       {
@@ -340,7 +353,7 @@ window.addEventListener("DOMContentLoaded", function () {
 
       inputs.forEach((input) => {
         input.addEventListener("input", function (e) {
-          const phoneValid = quizPhone.inputmask.unmaskedvalue().length === 9;
+          const phoneValid = /^[0-9-+()]*$/.test(quizPhone.value) && quizPhone.value.length > 5;
           const emailValid =
             /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
               quizEmail.value
@@ -402,27 +415,11 @@ window.addEventListener("DOMContentLoaded", function () {
   ) {
     const form = document?.querySelector(selector);
     const btn = document.querySelector(stepNode + " .quiz__btn");
-    const telSelector = form?.querySelector('input[type="tel"]');
     const checkboxesSelector = stepNode + " .quiz__content";
 
     if (!form) {
       console.error("Нет такого селектора!");
       return false;
-    }
-
-    if (telSelector) {
-      for (let item of rules) {
-        if (item.tel) {
-          item.rules.push({
-            rule: "function",
-            validator: function () {
-              const phone = telSelector.inputmask.unmaskedvalue();
-              return phone.length === 9;
-            },
-            errorMessage: item.telError,
-          });
-        }
-      }
     }
 
     const validation = new window.JustValidate(selector, {
@@ -459,26 +456,10 @@ window.addEventListener("DOMContentLoaded", function () {
   function validateForms(selector, rules, afterSend) {
     const form = document?.querySelector(selector);
     const btn = form?.querySelector('button[type="submit"]');
-    const telSelector = form?.querySelector('input[type="tel"]');
 
     if (!form) {
       console.error("Нет такого селектора!");
       return false;
-    }
-
-    if (telSelector) {
-      for (let item of rules) {
-        if (item.tel) {
-          item.rules.push({
-            rule: "function",
-            validator: function () {
-              const phone = telSelector.inputmask.unmaskedvalue();
-              return phone.length === 9;
-            },
-            errorMessage: item.telError,
-          });
-        }
-      }
     }
 
     const validation = new window.JustValidate(selector, {
@@ -492,16 +473,6 @@ window.addEventListener("DOMContentLoaded", function () {
     for (let item of rules) {
       validation.addField(item.ruleSelector, item.rules);
     }
-
-    validation.onValidate((ev) => {
-      if (!btn) return;
-
-      if (ev.isValid) {
-        btn.disabled = false;
-      } else {
-        btn.disabled = true;
-      }
-    });
 
     validation.onSuccess((ev) => {
       let formData = new FormData(ev.target);
