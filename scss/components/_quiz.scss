@@ -16,15 +16,12 @@
   }
 
   &__wrapper {
-    max-width: 73.75rem;
     flex-grow: 1;
     height: 100%;
     display: flex;
     flex-direction: column;
-    overflow-x: auto;
-    margin: 0 auto;
+    overflow: auto;
     width: 100%;
-    transform: translateX(-3rem);
   }
 
   &__subtitle {
@@ -78,7 +75,7 @@
   &__inner {
     flex-grow: 1;
     max-width: 67.5rem;
-    margin-left: 6rem;
+    margin: 0 auto;
     padding: 3.75rem;
     background-color: #fff;
   }
@@ -319,14 +316,8 @@
 
 @media screen and (max-width: 1024px) {
   .quiz {
-    &__wrapper {
-      transform: translateX(0);
-      overflow: visible;
-    }
     &__inner {
       padding: 2rem;
-      margin: 0 auto;
-      overflow: auto;
     }
     &__title {
       font-size: 3rem;

@@ -3052,15 +3052,12 @@ button {
   flex-direction: column;
 }
 .quiz__wrapper {
-  max-width: 73.75rem;
   flex-grow: 1;
   height: 100%;
   display: flex;
   flex-direction: column;
-  overflow-x: auto;
-  margin: 0 auto;
+  overflow: auto;
   width: 100%;
-  transform: translateX(-3rem);
 }
 .quiz__subtitle {
   margin-bottom: 3.125rem;
@@ -3108,7 +3105,7 @@ button {
 .quiz__inner {
   flex-grow: 1;
   max-width: 67.5rem;
-  margin-left: 6rem;
+  margin: 0 auto;
   padding: 3.75rem;
   background-color: #fff;
 }
@@ -3340,14 +3337,8 @@ button {
 }
 
 @media screen and (max-width: 1024px) {
-  .quiz__wrapper {
-    transform: translateX(0);
-    overflow: visible;
-  }
   .quiz__inner {
     padding: 2rem;
-    margin: 0 auto;
-    overflow: auto;
   }
   .quiz__title {
     font-size: 3rem;
