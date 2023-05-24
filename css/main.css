@@ -386,6 +386,7 @@ button {
 .form__btn {
   text-align: left;
   width: 100%;
+  color: #444444;
 }
 .form__btn .btn__inner {
   justify-content: flex-start;
@@ -827,6 +828,54 @@ button {
     transform: translate3d(-100%, 0, 0);
   }
 }
+@-webkit-keyframes swim {
+  0% {
+    transform: translateY(0px);
+  }
+  1% {
+    transform: translateY(0px);
+  }
+  51% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@keyframes swim {
+  0% {
+    transform: translateY(0px);
+  }
+  1% {
+    transform: translateY(0px);
+  }
+  51% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+@-webkit-keyframes shine-image {
+  0% {
+    left: -75px;
+    top: -365px;
+  }
+  100% {
+    left: 120%;
+    top: 40%;
+  }
+}
+@keyframes shine-image {
+  0% {
+    left: -75px;
+    top: -365px;
+  }
+  100% {
+    left: 120%;
+    top: 40%;
+  }
+}
 .icon-hint {
   display: inline-block;
   flex-shrink: 0;
@@ -917,12 +966,8 @@ button {
   background: linear-gradient(0deg, #efd0bd 0%, #ede4f0 100%);
   padding: 1.75rem;
   position: relative;
-  transition: transform 0.25s ease-in-out;
 }
 @media (any-hover: hover) {
-  .banner:hover {
-    transform: scale(1.02);
-  }
   .banner:hover .banner__icon {
     -webkit-animation: rotate 2s ease-in-out infinite;
             animation: rotate 2s ease-in-out infinite;
@@ -1487,16 +1532,42 @@ button {
   margin-bottom: 2.5rem;
   text-transform: uppercase;
 }
+.catalog__img {
+  position: relative;
+}
+.catalog__img::after {
+  background: #fff;
+  content: "";
+  height: 720px;
+  left: -75px;
+  opacity: 0.2;
+  position: absolute;
+  top: -365px;
+  width: 25px;
+  transition: all 2000ms cubic-bezier(0.19, 1, 0.22, 1);
+  transform: rotate(35deg);
+  -webkit-animation: shine-image 2.3s infinite;
+          animation: shine-image 2.3s infinite;
+}
 .catalog__subtitle {
   font-size: 1.6875rem;
   margin-bottom: 2.5rem;
   line-height: 1.4;
   text-transform: uppercase;
-  background-repeat: no-repeat;
-  background-position: left top;
   padding-left: 5rem;
-  background-size: 2.5625rem;
   max-width: 45rem;
+  position: relative;
+}
+.catalog__subtitle-icon {
+  position: absolute;
+  left: 0;
+  top: 5px;
+}
+.catalog__subtitle-icon img {
+  width: 2.5625rem;
+  height: 3.375rem;
+  -webkit-animation: swim 3s infinite linear;
+          animation: swim 3s infinite linear;
 }
 .catalog__text {
   font-size: 1.25rem;
@@ -1944,6 +2015,8 @@ button {
 .help__title {
   margin-bottom: 0.625rem;
   padding-bottom: 1.75rem;
+  padding-right: 10rem;
+  background: url("../img/help-decor.png") top right/9.375rem no-repeat;
 }
 .help__title span {
   display: block;
@@ -1959,10 +2032,18 @@ button {
 .help__box li:not(:last-child) {
   margin-bottom: 1.5rem;
 }
+.help__icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.help__icon img {
+  width: 5.1875rem;
+  -webkit-animation: swim 3s infinite linear;
+          animation: swim 3s infinite linear;
+}
 .help__text {
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: 5.1875rem;
+  position: relative;
   padding-left: 5.625rem;
   position: relative;
   max-width: 35rem;
@@ -2154,6 +2235,11 @@ button {
     background-size: contain;
     padding-top: 15rem;
   }
+  .help__title {
+    padding-right: 0;
+    padding-top: 3rem;
+    background: url("../img/help-decor.png") top right/6rem no-repeat;
+  }
 }
 .subscribe {
   padding: 9.375rem 0 7.5rem;
@@ -2205,6 +2291,27 @@ button {
 .subscribe__body {
   width: 100%;
   text-align: center;
+  position: relative;
+}
+.subscribe__body::before {
+  content: "";
+  position: absolute;
+  width: 5.9375rem;
+  height: 5.3125rem;
+  top: 50%;
+  left: 1.875rem;
+  transform: translateY(-50%);
+  background: url("../img/subscribe-decor.png") center/cover no-repeat;
+}
+.subscribe__body::after {
+  content: "";
+  position: absolute;
+  width: 5.9375rem;
+  height: 5.3125rem;
+  top: 50%;
+  right: 1.875rem;
+  transform: translateY(-50%) rotate(180deg) scaleY(-1);
+  background: url("../img/subscribe-decor.png") center/cover no-repeat;
 }
 .subscribe__logo {
   display: inline-block;
@@ -2292,6 +2399,12 @@ button {
   }
   .subscribe__box-subtitle {
     font-size: 1rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .subscribe__body::before, .subscribe__body::after {
+    top: 14%;
+    background-size: 80%;
   }
 }
 @media screen and (max-width: 600px) {

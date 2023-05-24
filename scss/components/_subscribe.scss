@@ -46,6 +46,29 @@
   &__body {
     width: 100%;
     text-align: center;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 5.9375rem;
+      height: 5.3125rem;
+      top: 50%;
+      left: 1.875rem;
+      transform: translateY(-50%);
+      background: url('../img/subscribe-decor.png') center / cover no-repeat;
+    }
+    
+    &::after {
+      content: "";
+      position: absolute;
+      width: 5.9375rem;
+      height: 5.3125rem;
+      top: 50%;
+      right: 1.875rem;
+      transform: translateY(-50%) rotate(180deg) scaleY(-1);
+      background: url('../img/subscribe-decor.png') center / cover no-repeat;
+    }
   }
 
   &__logo {
@@ -137,6 +160,16 @@
     }
     &__box-subtitle {
       font-size: 1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .subscribe__body {
+    &::before,
+    &::after {
+      top: 14%;
+      background-size: 80%;
     }
   }
 }

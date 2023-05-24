@@ -15,10 +15,8 @@
   background: $gradient;
   padding: 1.75rem;
   position: relative;
-  transition: transform $transition;
 
   @include hover {
-    transform: scale(1.02);
 
     .banner {
       &__icon {

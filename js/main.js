@@ -7,6 +7,9 @@ window.addEventListener("DOMContentLoaded", function () {
   initModals();
   initGalleryShowMore();
 
+  gsap.registerPlugin(ScrollTrigger);
+  // initAnimations();
+  
   function initModals() {
     const modals = new SimpleModal();
     modals.init();
@@ -494,6 +497,63 @@ window.addEventListener("DOMContentLoaded", function () {
       xhr.send(formData);
 
       ev.target.reset();
+    });
+  }
+
+  function initAnimations() {
+    if (ScrollTrigger.isTouch === 1) return;
+
+
+    gsap.to('.hero', {
+      opacity: 0,
+      scrollTrigger: {
+        trigger: '.hero',
+        start: 'top top',
+        end: '300px',
+        scrub: 1,
+      },
+    });
+
+    const itemsLeft = gsap.utils.toArray('.main__item > *:first-child');
+    const itemsRight = gsap.utils.toArray('.main__item > *:last-child');
+
+    itemsLeft.forEach((item) => {
+      gsap.fromTo(
+        item,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          x: 100,
+          scrollTrigger: {
+            trigger: item,
+            start: '-500', 
+            end: '+=800', 
+            scrub: 1,
+          },
+        }
+      );
+    });
+
+    itemsRight.forEach((item) => {
+      gsap.fromTo(
+        item,
+        {
+          opacity: 0,
+          x: 200,
+        },
+        {
+          x: 0,
+          opacity: 1,
+          scrollTrigger: {
+            trigger: item,
+            start: '-500', 
+            end: '+=800', 
+            scrub: 1,
+          },
+        }
+      );
     });
   }
 });
