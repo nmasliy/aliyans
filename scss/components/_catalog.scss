@@ -13,6 +13,7 @@
 	}
 
 	&__img {
+    overflow: hidden;
 		position: relative;
 		&::after {
 			background: #fff;

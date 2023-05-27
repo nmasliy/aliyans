@@ -1,14 +1,23 @@
 window.addEventListener("DOMContentLoaded", function () {
 
+  initScroll();
   initForms();
   initObjectsCounter();
   initGallerySlider();
   initQuiz();
   initModals();
   initGalleryShowMore();
-
   gsap.registerPlugin(ScrollTrigger);
-  // initAnimations();
+  gsap.registerPlugin(TextPlugin);
+  initAnimations();
+
+  function initScroll() {
+    var scroll = new SmoothScroll('a[href*="#"]', {
+      ignore: '[data-modal-open]',
+      speed: 500,
+      speedAsDuration: true
+    });
+  }
   
   function initModals() {
     const modals = new SimpleModal();
@@ -238,7 +247,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const objectsBlock = document.querySelector(".help__objects");
     if (!objectsBlock) return;
 
-    const sumNode = objectsBlock.querySelector(".help__objects-value");
+    const sumNode = objectsBlock.querySelector(".help__objects-value span");
     const weekNode = objectsBlock.querySelector(".help__objects-week span");
 
     let sum = +sumNode.dataset.startValue;
@@ -294,7 +303,7 @@ window.addEventListener("DOMContentLoaded", function () {
     const swiper = new Swiper(".gallery__inner", {
       loop: true,
       slidesPerView: "auto",
-      speed: 3000,
+      speed: 9000,
       freeMode: true,
       autoplay: {
         delay: 0,
@@ -503,57 +512,472 @@ window.addEventListener("DOMContentLoaded", function () {
   function initAnimations() {
     if (ScrollTrigger.isTouch === 1) return;
 
+    const counters = gsap.utils.toArray('.counter');
+    
+    counters.forEach(box => {
+      let textNode = box.querySelector('span');
+      const endValue = +textNode.textContent;
+      
+      let counter = {
+        value: 0
+      }
+      
+      gsap.to(counter, {
+          value: endValue,
+          duration: 1,
+          onUpdate: () => {
+            textNode.textContent = Math.round(counter.value);
+          },
+          scrollTrigger: {
+            trigger: box,
+          }
+    }); })
 
-    gsap.to('.hero', {
-      opacity: 0,
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: '300px',
-        scrub: 1,
+    const titles = gsap.utils.toArray('.title__text');
+
+    titles.forEach((item) => {
+      item.dataset.text = item.textContent;
+      
+      gsap.fromTo(
+        item,
+        {
+          text: ''
+        },
+        {
+          duration: 0.7,
+          text: item.dataset.text,
+          scrollTrigger: {
+            trigger: item,
+          },
+        }
+      );
+    }); 
+
+    const subtitles = gsap.utils.toArray('.title__small');
+    
+    subtitles.forEach((item) => {      
+      gsap.from(
+        item,
+        {
+          x: -50,
+          opacity: 0,
+          duration: 0.6,
+          delay: 0.3,
+          scrollTrigger: {
+            trigger: item,
+          },
+        },
+      );
+    }); 
+
+    const citizenItems = gsap.utils.toArray('.citizenship__text p');
+    let delayCitizenItems = 0.2;
+
+    for (let i = 0; i < citizenItems.length; i++) {
+      delayCitizenItems += 0.2;
+      gsap.from(
+        citizenItems[i],
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.6,
+          delay: delayCitizenItems,
+          scrollTrigger: {
+            trigger: '.citizenship__left',
+          },
+        },
+      );
+    }
+
+    gsap.from(
+      '.help__box p',
+      {
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: '.help__left',
+        },
       },
-    });
+    );
 
-    const itemsLeft = gsap.utils.toArray('.main__item > *:first-child');
-    const itemsRight = gsap.utils.toArray('.main__item > *:last-child');
+    animateItemsToY('.transfer__list li', '.transfer__list');
+    animateItemsToY('.transfer__text p', '.transfer__text');
+    animateItemsToY('.help__box li', '.help__left', 0.1, 0.15);
+    animateItemsToY('.about-info__item', '.about-info__list', 0.1, 0.15);
+    animateItemsToY('.benefits__item', '.benefits__list', 0.1, 0.15);
+    
+    
+    gsap.from(
+      '.team__head',
+      {
+        opacity: 0,
+        duration: 1,
+        scrollTrigger: {
+          trigger: '.team',
+        },
+      },
+    );
+    
+    
+    gsap.from(
+      '.team__item:nth-child(1)',
+      {
+        x: 100,
+        opacity: 0,
+        delay: 0.6,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: '.team__list',
+        },
+      },
+    );
+    gsap.from(
+      '.team__item:nth-child(2)',
+      {
+        x: 100,
+        delay: 0.3,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: '.team__list',
+        },
+      },
+    );
+    gsap.from(
+      '.team__item:nth-child(3)',
+      {
+        x: 100,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: '.team__list',
+        },
+      },
+    );
 
-    itemsLeft.forEach((item) => {
-      gsap.fromTo(
+    
+    gsap.from(
+      '.help__text',
+      {
+        x: -50,
+        opacity: 0,
+        delay: 1.5,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: '.help__left',
+        },
+      },
+    );
+
+    
+    gsap.from(
+      '.help__objects-key',
+      {
+        x: 70,
+        opacity: 0,
+        delay: 0.4,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: '.help__right',
+        },
+      },
+    );
+
+    
+
+    const apartmentsItems = gsap.utils.toArray('.apartments__item');
+
+    for (let i = 0; i < apartmentsItems.length; i++) {
+      gsap.from(
+        apartmentsItems[i],
+        {
+          y: 100,
+          opacity: 0,
+          duration: 0.6,
+          onComplete: () => {apartmentsItems[i].style.transform = '';},
+          scrollTrigger: {
+            trigger: apartmentsItems[i],
+          },
+        },
+      );
+    }
+
+    const bottomItems = gsap.utils.toArray('[data-anim-bottom]');
+    
+    bottomItems.forEach((item) => {      
+      let delay = item.dataset.delay ? item.dataset.delay : 0;
+      
+      gsap.from(
         item,
         {
+          y: 100,
+          delay: delay,
           opacity: 0,
+          duration: 1,
+          scrollTrigger: {
+            trigger: item,
+          },
         },
+      );
+    }); 
+    
+    const topItems = gsap.utils.toArray('[data-anim-top]');
+    
+    topItems.forEach((item) => {      
+      let delay = item.dataset.delay ? item.dataset.delay : 0;
+
+      gsap.from(
+        item,
         {
-          opacity: 1,
+          y: -100,
+          opacity: 0,
+          delay: delay,
+          duration: 1,
+          scrollTrigger: {
+            trigger: item,
+          },
+        },
+      );
+    }); 
+
+    const leftItems = gsap.utils.toArray('[data-anim-left]');
+    
+    leftItems.forEach((item) => {      
+      let delay = item.dataset.delay ? item.dataset.delay : 0;
+
+      gsap.from(
+        item,
+        {
+          x: -100,
+          opacity: 0,
+          duration: 0.6,
+          delay: delay,
+          scrollTrigger: {
+            trigger: item,
+            // start: 'top-=50px center'
+          },
+        },
+      );
+    }); 
+
+    const rightItems = gsap.utils.toArray('[data-anim-right]');
+    
+    rightItems.forEach((item) => {      
+      let delay = item.dataset.delay ? item.dataset.delay : 0;
+
+      gsap.from(
+        item,
+        {
           x: 100,
-          scrollTrigger: {
-            trigger: item,
-            start: '-500', 
-            end: '+=800', 
-            scrub: 1,
-          },
-        }
-      );
-    });
-
-    itemsRight.forEach((item) => {
-      gsap.fromTo(
-        item,
-        {
           opacity: 0,
-          x: 200,
-        },
-        {
-          x: 0,
-          opacity: 1,
+          delay: delay,
+          duration: 0.6,
           scrollTrigger: {
             trigger: item,
-            start: '-500', 
-            end: '+=800', 
-            scrub: 1,
+            // start: 'top-=50px center'
           },
-        }
+        },
       );
-    });
+    }); 
+
+    gsap.from(
+      '.online__text',
+      {
+        y: -50,
+        opacity: 0,
+        duration: 0.6,
+        scrollTrigger: {
+          trigger: '.online__text',
+        },
+      },
+    );
+
+    gsap.from(
+      '.online__btn',
+      {
+        y: -50,
+        opacity: 0,
+        duration: 0.6,
+        delay: 1,
+        scrollTrigger: {
+          trigger: '.online__list',
+        },
+      },
+    );
+
+    const dividers = gsap.utils.toArray('.divider');
+
+    dividers.forEach(item => {
+      const left = item.querySelector('.divider__left div');
+      const center = item.querySelector('.divider__center img');
+      const right = item.querySelector('.divider__right div');
+      
+      gsap.from(
+        left,
+        {
+          x: -50,
+          scaleX: 0,
+          opacity: 0,
+          duration: 0.6,
+          transformOrigin: "left",
+          scrollTrigger: {
+            trigger: item,
+          },
+        },
+      );
+      
+      gsap.from(
+        right,
+        {
+          x: -50,
+          scaleX: 0,
+          delay: 0.6,
+          opacity: 0,
+          duration: 0.6,
+          transformOrigin: "right",
+          scrollTrigger: {
+            trigger: item,
+          },
+        },
+      );
+
+      gsap.from(
+        center,
+        {
+          y: -50,
+          delay: 1.2,
+          opacity: 0,
+          duration: 0.6,
+          scrollTrigger: {
+            trigger: item,
+          },
+        },
+      );
+    })
+
+    const onlineItems = gsap.utils.toArray('.online__list li');
+    let delayOnlineItems = 0.1;
+
+    for (let i = 0; i < onlineItems.length; i++) {
+      delayOnlineItems += 0.2;
+      gsap.from(
+        onlineItems[i],
+        {
+          y: -50,
+          opacity: 0,
+          duration: 0.6,
+          delay: delayOnlineItems,
+          scrollTrigger: {
+            trigger: '.online__list',
+          },
+        },
+      );
+    }
+
+    const investItems = gsap.utils.toArray('.invest__col p');
+    let delayInvestItems = 0.1;
+
+    for (let i = 0; i < investItems.length; i++) {
+      delayInvestItems += 0.2;
+      gsap.from(
+        investItems[i],
+        {
+          y: -50,
+          opacity: 0,
+          duration: 0.6,
+          delay: delayInvestItems,
+          scrollTrigger: {
+            trigger: '.invest__row',
+          },
+        },
+      );
+    }
+
+    const freeTitleItems = gsap.utils.toArray('.free__title div');
+    let delayFreeTitleItems = 0.1;
+
+    for (let i = 0; i < freeTitleItems.length; i++) {
+      delayFreeTitleItems += 0.2;
+      gsap.from(
+        freeTitleItems[i],
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.6,
+          delay: delayFreeTitleItems,
+          scrollTrigger: {
+            trigger: '.free__inner',
+          },
+        },
+      );
+    }
+
+    const freeItems = gsap.utils.toArray('.free__list li');
+    let delayFreeItems = 0.1;
+
+    for (let i = 0; i < freeItems.length; i++) {
+      delayFreeItems += 0.2;
+      gsap.from(
+        freeItems[i],
+        {
+          y: 50,
+          opacity: 0,
+          duration: 0.6,
+          delay: delayFreeItems,
+          scrollTrigger: {
+            trigger: '.free__list',
+          },
+        },
+      );
+    }
+
+    gsap.from(
+      '.free__box-text',
+      {
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        delay: 0.8,
+        scrollTrigger: {
+          trigger: '.free__list',
+        },
+      },
+    );
+    gsap.from(
+      '.free__btn-wrapper',
+      {
+        y: 50,
+        opacity: 0,
+        duration: 0.6,
+        delay: 1,
+        scrollTrigger: {
+          trigger: '.free__list',
+        },
+      },
+    );
+
+    function animateItemsToY(itemsSelector, triggerSelector, delay = 0, delayStep = 0.2) {
+      const items = gsap.utils.toArray(itemsSelector);
+      let startDelay = delay;
+      let stepDelay = delayStep;
+  
+      for (let i = 0; i < items.length; i++) {
+        startDelay += stepDelay;
+        gsap.from(
+          items[i],
+          {
+            y: -50,
+            opacity: 0,
+            duration: 0.6,
+            delay: startDelay,
+            scrollTrigger: {
+              trigger: triggerSelector,
+            },
+          },
+        );
+      }
+    }
+
   }
 });

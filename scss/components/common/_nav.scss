@@ -18,7 +18,7 @@
     @include hover {
       a {
         border-bottom-color: transparent;
-        color: $red-color;
+        color: $hover-color;
       }
     }
   }
@@ -31,8 +31,8 @@
     transition: color $transition, border-color $transition;
     border-bottom: 1px solid transparent;
     @include hover {
-      border-color: $red-color;
-      color: $red-color;
+      border-color: $hover-color;
+      color: $hover-color;
     }
   }
 
@@ -43,6 +43,7 @@
     background-size: 1.375rem;
     padding-left: 1.875rem;
   }
+
 
   &__email,
   &__telegram,
@@ -56,8 +57,30 @@
       transition: border $transition;
     }
 
+  }
+
+  &__telegram {
     @include hover {
-      color: $red-color;
+      color: #35ace0;
+      span {
+        border-color: transparent;
+      }
+    }
+  }
+  
+
+  &__whatsapp {
+    @include hover {
+      color: #4caf50;
+      span {
+        border-color: transparent;
+      }
+    }
+  }
+  
+  &__email {
+    @include hover {
+      color: $hover-color;
       span {
         border-color: transparent;
       }

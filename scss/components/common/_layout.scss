@@ -11,29 +11,52 @@
 
 .banner {
   display: block;
-  max-width: 18.75rem;
-  background: $gradient;
-  padding: 1.75rem;
+  max-width: 19rem;
   position: relative;
-
   @include hover {
-
     .banner {
       &__icon {
-        animation: rotate 2s ease-in-out infinite;
+        animation-play-state: running;
+      }
+      &__inner {
+        &::before {
+          opacity: 1;
+        }
       }
     }
   }
 
-  &::before {
-    position: absolute;
-    content: "";
-    inset: -6px;
-    z-index: -1;
-    border: 3px solid $accent-color;
+  &__wrapper {
+    overflow: hidden;
+    position: relative;
+    padding: 6px;
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 3px solid $accent-color;
+    }
+  }
+
+  &__inner {
+    padding: 1.75rem;
+    background: $gradient;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border: 3px solid rgba(#fff, 0.6);
+      transition: all 0.35s;
+      animation: clippath 3s infinite linear;
+      opacity: 0;
+      z-index: 1;
+    }
   }
 
   &__title {
+    position: relative;
+    z-index: 3;
     line-height: 1;
     margin-bottom: 1.5625rem;
     font-family: $font-tertiary;
@@ -53,6 +76,8 @@
   }
 
   &__text {
+    position: relative;
+    z-index: 3;
     font-size: 1.0625rem;
     line-height: 1.4;
     font-family: $font-main;
@@ -64,9 +89,12 @@
 
   &__icon {
     position: absolute;
+    z-index: 3;
     right: -1.875rem;
     top: 0.5rem;
     transform: rotate(-5deg);
+    animation: rotate 1.7s ease-in-out infinite;
+    animation-play-state: paused;
     img {
       width: 3.9375rem;
     }
@@ -74,11 +102,49 @@
 
   &__arrow {
     position: absolute;
+    z-index: 3;
     right: 0.9375rem;
     bottom: 1.25rem;
     animation: arrow 2s ease-in-out infinite;
     img {
       width: 2.125rem;
+    }
+  }
+}
+
+.divider {
+  top: 0;
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+
+  &__left {
+    left: 0;
+  }
+  
+  &__right {
+    right: 0;
+  }
+
+  &__center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  &__left,
+  &__right {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 1px;
+    width: calc(50% - 50px);
+    div {
+      height: 100%;
+      background-color: #000;
+      width: 100%;
     }
   }
 }
@@ -93,13 +159,17 @@
 
   &::before {
     position: absolute;
-    content: "";
+    content: '';
     left: 0;
     bottom: 0;
     background-color: $accent-color;
     height: 5px;
     width: 31.25rem;
     max-width: 100%;
+  }
+
+  &__text {
+    display: inline-block;
   }
 
   &__small {
@@ -197,13 +267,12 @@
     position: relative;
     &::after {
       position: absolute;
-      content: "";
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 2.5rem;
-      height: 2.5rem;
-      background: url("../img/check-icon.svg") center / cover no-repeat;
+      content: '';
+      bottom: 0;
+      left: 3px;
+      width: 1.25rem;
+      height: 1.25rem;
+      background: url('../img/check-icon.svg') center / cover no-repeat;
       opacity: 0;
     }
   }

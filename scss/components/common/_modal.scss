@@ -37,7 +37,8 @@
 
   &__close {
     width: 2.25rem;
-    height: 2.375rem;
+    height: 2.25rem;
+    padding: 0;
     position: absolute;
     right: 15px;
     top: 15px;
@@ -45,7 +46,14 @@
     border: none;
     box-shadow: none;
     cursor: pointer;
-    background: url("../img/close-icon.png") center / cover no-repeat;
+    background: url("../img/close-icon.svg") center / cover no-repeat;
+    transition: .3s;
+    opacity: 0.6;
+
+    @include hover {
+      opacity: 0.9;
+      transform: rotate(90deg);
+    }
   }
 
   &[aria-hidden="true"] {

@@ -1,11 +1,18 @@
 .subscribe {
   padding: 9.375rem 0 7.5rem;
-  background: url('../img/divider-2.png') top center no-repeat;
-
+  
   &__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  &__divider {
+    top: -8rem;
+  }
+  
+  .container {
+    position: relative;
   }
 
   &__title {
@@ -34,7 +41,7 @@
         background: url('../img/telegram-2-icon.png') center / 2rem no-repeat;
       }
 			@include hover {
-				color: $red-color;
+				color: $hover-color;
 				border-color: transparent;
 			}
     }
@@ -48,29 +55,31 @@
     text-align: center;
     position: relative;
 
-    &::before {
-      content: "";
-      position: absolute;
-      width: 5.9375rem;
-      height: 5.3125rem;
-      top: 50%;
-      left: 1.875rem;
-      transform: translateY(-50%);
-      background: url('../img/subscribe-decor.png') center / cover no-repeat;
-    }
-    
-    &::after {
-      content: "";
-      position: absolute;
-      width: 5.9375rem;
-      height: 5.3125rem;
-      top: 50%;
-      right: 1.875rem;
-      transform: translateY(-50%) rotate(180deg) scaleY(-1);
-      background: url('../img/subscribe-decor.png') center / cover no-repeat;
-    }
   }
 
+  
+  &__bg-left {
+    content: "";
+    position: absolute;
+    width: 5.9375rem;
+    height: 5.3125rem;
+    top: 50%;
+    left: 1.875rem;
+    transform: translateY(-50%);
+    background: url('../img/subscribe-decor.png') center / cover no-repeat;
+  }
+  
+  &__bg-right {
+    content: "";
+    position: absolute;
+    width: 5.9375rem;
+    height: 5.3125rem;
+    top: 50%;
+    right: 1.875rem;
+    transform: translateY(-50%) rotate(180deg) scaleY(-1);
+    background: url('../img/subscribe-decor.png') center / cover no-repeat;
+  }
+  
   &__logo {
     display: inline-block;
     position: relative;
@@ -114,10 +123,15 @@
 
     @include hover {
       box-shadow: 0 0 0.625rem $accent-color;
-      .subscribe__box-title {
-        color: $red-color;
-        span {
-          border-color: transparent;
+      .subscribe {
+        &__box-title {
+          color: $hover-color;
+          span {
+            border-color: transparent;
+          }
+        }
+        &__box-subtitle {
+          text-decoration: underline;
         }
       }
     }

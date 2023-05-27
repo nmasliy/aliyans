@@ -54,6 +54,13 @@
     }
   }
 
+  &__input-caption {
+    display: none;
+    text-align: center;
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+
   &__caption {
     font-size: 1.25rem;
     text-transform: uppercase;
@@ -217,11 +224,10 @@
     &::after {
       position: absolute;
       content: "";
-      left: 50%;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      width: 3.75rem;
-      height: 3.75rem;
+      width: 2rem;
+      height: 2rem;
+      bottom: 0;
+      left: 3px;
       background: url("../img/check-icon.svg") center / cover no-repeat;
       opacity: 0;
     }
@@ -381,7 +387,17 @@
     }
     &__input {
       font-size: 1.1rem;
+      &--tel,
+      &--email {
+        &::placeholder {
+          font-size: 0;
+        }
+      }
     }
+    &__input-caption {
+      display: block;
+    }
+    
     &__step-body {
       padding-bottom: 4rem;
     }

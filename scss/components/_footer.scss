@@ -62,18 +62,29 @@
     }
   }
 
+  &__heart {
+    display: block;
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1.5625rem 1.875rem;
+    right: 0;
+    top: -5px;
+    animation: swim-sm 3s infinite linear;
+  }
+  
   &__bottom-line {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 2.5rem;
     p {
+      position: relative;
       font-size: 0.875rem;
       text-transform: uppercase;
-      padding-right: 1.875rem;
-      background-repeat: no-repeat;
-      background-position: right center;
-      background-size: 1.5625rem 1.875rem;
+      padding-right: 30px;
     }
     a {
       font-size: 1.125rem;
@@ -82,7 +93,7 @@
 
       @include hover {
         border-color: transparent;
-        color: $red-color;
+        color: $hover-color;
       }
     }
   }

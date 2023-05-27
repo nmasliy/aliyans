@@ -12,9 +12,38 @@
 	&__item {
 		font-size: 1.0625rem;
 		max-width: 21.875rem;
+		position: relative;
 		line-height: 1.3;
-		padding-left: 3.4375rem;
-		background: url('../img/benefits-list-bullet.png') left top / 1.9375rem no-repeat;
+		padding-left: 45px;
+		transition: $transition;
+
+		@include hover {
+			color: #b0958a;
+			&::before {
+				transform: rotate(180deg);
+			}
+		}
+
+		&::before {
+			position: absolute;
+			content: "";
+			left: 0;
+			top: 6px;
+			width: 15px;
+			height: 21px;
+			background: url('../img/benefits-list-bullet.png') left top / 15px no-repeat;
+			transition: transform $transition;
+		}
+
+		&::after {
+			position: absolute;
+			content: "";
+			height: 75px;
+			top: 6px;
+			left: 30px;
+			width: 1px;
+			background-color: #e6ceb1;
+		}
 	}
 }
 

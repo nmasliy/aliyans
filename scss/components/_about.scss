@@ -1,5 +1,4 @@
 .about {
-  background: url('../img/divider-1.png') top center no-repeat;
   padding: 9.375rem 0 6.25rem;
 
   &__inner {
@@ -7,6 +6,24 @@
     align-items: center;
     grid-template-columns: 7fr 6fr;
     gap: 8.125rem;
+  }
+
+  .container {
+    position: relative;
+  }
+
+  &__divider {
+    position: absolute;
+    left: 50%;
+    margin: 0 15px;
+    transform: translateX(-50%);
+    top: -9.376rem;
+    overflow: hidden;
+    min-width: 100%;
+    img {
+      width: 100%;
+      min-width: 900px;
+    }
   }
 
   &__video {
@@ -85,7 +102,7 @@
     }
 
     @include hover {
-      color: $red-color;
+      color: $hover-color;
       background-position: left 0.9375rem center;
       span {
         border-color: transparent;
@@ -155,8 +172,10 @@
 
 @media screen and (max-width: 1024px) {
   .about {
-    background-size: 150%;
 		padding: 5rem 0;
+    &__divider {
+      top: -5rem;
+    }
   }
 	.about-info {
 		padding-bottom: 4rem;
